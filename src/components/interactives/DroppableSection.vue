@@ -4,7 +4,7 @@
 
     <!-- Droppable Area -->
     <div
-      class="droppable-area border-dashed border-2 p-5 mt-5 h-auto"
+      class="droppable-area p-5 mt-5 h-auto min-h-screen border-dashed border"
       @drop.prevent="handleDrop"
       @dragover.prevent
       @dragenter.prevent
@@ -13,7 +13,7 @@
       <div v-if="droppedItems.length">
         <draggable class="dragArea list-group w-full" :list="droppedItems">
           <div v-for="item in droppedItems" :key="item.uuid">
-            <div class="cursor-pointer my-4">
+            <div class="cursor-move my-4" :class="{'border-dashed border border-amber-950 p-2' : item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid}">
               <ImageBlock :item="item" @click="pageBuilderStore.setIsEdittingBlock(item)" />
             </div>
           </div>
@@ -54,9 +54,5 @@ const handleDrop = (event: DragEvent) => {
 
 .droppable-area:hover {
   background-color: #f0f0f0;
-}
-
-.list-group-item {
-  cursor: move;
 }
 </style>

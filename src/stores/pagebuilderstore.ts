@@ -34,7 +34,7 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
 
   getters: {
     getSelectedBlock: (state) => state.selectedBlock,
-    getActiveBlock: (state) => state.isEdittingBlock,
+    getIsEdittingBlock: (state) => state.isEdittingBlock,
     getBuilderImages: (state) => state.builderImages,
   },
 

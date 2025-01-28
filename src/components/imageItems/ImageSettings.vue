@@ -14,7 +14,6 @@
     <draggable
       class="dragArea list-group w-full grid grid-cols-2 gap-3"
       :list="pageBuilderStore.builderImages"
-      @change="log"
     >
       <div
         class="cursor-move"
