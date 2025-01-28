@@ -4,15 +4,15 @@
       Logo
     </div>
     <div class="flex flex-col items-center justify-center space-y-8 mt-5">
-      <button @click="selectBlock('layout')" class="cursor-pointer flex flex-col items-center jusitfy-center" :class="{'bg-amber-900' : selectedBlock === 'layout'}">
+      <button @click="selectBlock('layout')" class="cursor-pointer flex flex-col items-center jusitfy-center" :class="{'bg-amber-900' : pageBuilderStore.selectedBlock === 'layout'}">
         <SvgIcons name="layout-icon" />
         <p class="text-sm">Layouts</p>
       </button>
-      <button @click="selectBlock('text')" class="cursor-pointer flex flex-col items-center jusitfy-center" :class="{'bg-amber-900' : selectedBlock === 'text'}">
+      <button @click="selectBlock('text')" class="cursor-pointer flex flex-col items-center jusitfy-center" :class="{'bg-amber-900' : pageBuilderStore.selectedBlock === 'text'}">
         <SvgIcons name="text-icon" />
         <p class="text-sm">Text</p>
       </button>
-      <button @click="selectBlock('image')" class="cursor-pointer flex flex-col items-center jusitfy-center" :class="{'bg-amber-900' : selectedBlock === 'image'}">
+      <button @click="selectBlock('image')" class="cursor-pointer flex flex-col items-center jusitfy-center" :class="{'bg-amber-900' : pageBuilderStore.selectedBlock === 'image'}">
         <SvgIcons name="image-icon" />
         <p class="text-sm">Image</p>
       </button>
@@ -23,11 +23,14 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import SvgIcons from "../../assets/icons/SvgIcons.vue";
+import { usePageBuilderStore } from "../../stores/pagebuilderstore"
+
+const pageBuilderStore = usePageBuilderStore()
 
 const selectedBlock = ref('')
 
 const selectBlock = (val: string) => {
-  selectedBlock.value = val
+  pageBuilderStore.selectBlock(val)
 }
 </script>
 
