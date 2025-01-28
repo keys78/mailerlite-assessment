@@ -67,6 +67,6 @@ const handleImageUpload = (event: Event) => {
 
 // Make the items draggable by adding draggable data
 const handleDragStart = (event: DragEvent, item: any) => {
-  event.dataTransfer?.setData("item-id", item.uuid.toString());
+  event.dataTransfer?.setData("item", JSON.stringify(item));
 };
 </script>

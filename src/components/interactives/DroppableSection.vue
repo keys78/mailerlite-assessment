@@ -10,9 +10,9 @@
       @dragenter.prevent
     >
       <p class="text-center">Drop Here</p>
-      <div v-if="droppedItems.length">
-        <draggable class="dragArea list-group w-full" :list="droppedItems">
-          <div v-for="item in droppedItems" :key="item.uuid">
+      <div v-if="pageBuilderStore.getAllBuilderBlocks?.length">
+        <draggable class="dragArea list-group w-full" :list="pageBuilderStore.getAllBuilderBlocks">
+          <div v-for="item in pageBuilderStore.getAllBuilderBlocks" :key="item.uuid">
             <div class="cursor-move my-4" :class="{'border-dashed border border-amber-950 p-2' : item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid}">
               <ImageBlock :item="item" @click="pageBuilderStore.setIsEdittingBlock(item)" />
             </div>
@@ -24,23 +24,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import ImageBlock from "../../components/Blocks/ImageBlock.vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 
 const pageBuilderStore = usePageBuilderStore();
-const droppedItems = ref<any[]>([]);
 
 const handleDrop = (event: DragEvent) => {
-  const draggedItemId = event.dataTransfer?.getData("item-id");
-  if (draggedItemId) {
-    const droppedItem = pageBuilderStore.getBuilderImages.find(
-      (item: any) => item.uuid === draggedItemId
-    );
-    if (droppedItem) {
-      droppedItems.value.push(droppedItem);
-    }
+  const droppedItem = event.dataTransfer?.getData("item");
+  if (droppedItem) {
+    pageBuilderStore.addBlockToBuilder(JSON.parse(droppedItem));
   }
 };
 </script>

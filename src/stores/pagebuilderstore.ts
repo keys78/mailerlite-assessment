@@ -5,7 +5,7 @@ import predefinedImage2 from "../assets/img/stuthere_banner.png"
 
 export const usePageBuilderStore = defineStore("pagebuilderstore", {
   state: () => ({
-    builderblocks: [],
+    builderBlocks: [] as any,
     selectedBlock: "image",
     isEdittingBlock: null as any,
     builderImages: [
@@ -36,6 +36,7 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     getSelectedBlock: (state) => state.selectedBlock,
     getIsEdittingBlock: (state) => state.isEdittingBlock,
     getBuilderImages: (state) => state.builderImages,
+    getAllBuilderBlocks: (state) => state.builderBlocks,
   },
 
   actions: {
@@ -61,5 +62,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     setIsEdittingBlock(block: Object) {
       this.isEdittingBlock = block;
     },
+    addBlockToBuilder(block: any) {
+      this.builderBlocks.push({ ...block });
+    }
   },
 });
