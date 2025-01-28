@@ -1,5 +1,28 @@
 <template>
   <div>
+    <div>
+      <button
+        class="p-4 bg-red-400 mb-4 cursor-pointer"
+        @click="showImages = true"
+      >
+        Change Image
+      </button>
+
+      <div v-if="showImages" class="grid grid-cols-2 gap-3">
+        <div
+          v-for="(element, index) in pageBuilderStore.builderImages"
+          :key="index"
+        >
+          <img
+            :src="element.src"
+            alt="uploaded image"
+            class="w-full h-[80px] object-cover cursor-pointer"
+            @click="pageBuilderStore.updateBlock('image', element)"
+          />
+        </div>
+      </div>
+    </div>
+
     <div class="mb-4 flex items-center justify-between">
       <label>Alt Text:</label>
       <input
@@ -45,13 +68,17 @@
         v-model="pageBuilderStore.getIsEdittingBlock.border"
       />
     </div>
-   <div class="mb-4 flex items-center justify-between">
-        <label>Border Color:</label>
-        <color-picker v-model:pureColor="pageBuilderStore.getIsEdittingBlock.borderColor"/>
+    <div class="mb-4 flex items-center justify-between">
+      <label>Border Color:</label>
+      <color-picker
+        v-model:pureColor="pageBuilderStore.getIsEdittingBlock.borderColor"
+      />
     </div>
     <div class="mb-4 flex items-center justify-between">
       <label>Background Color:</label>
-       <color-picker v-model:pureColor="pageBuilderStore.getIsEdittingBlock.backgroundColor"/>
+      <color-picker
+        v-model:pureColor="pageBuilderStore.getIsEdittingBlock.backgroundColor"
+      />
     </div>
   </div>
 </template>
@@ -64,4 +91,5 @@ import "vue3-colorpicker/style.css";
 
 const pageBuilderStore = usePageBuilderStore();
 
+const showImages = ref(false)
 </script>

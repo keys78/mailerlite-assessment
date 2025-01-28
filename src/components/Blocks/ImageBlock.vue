@@ -2,17 +2,17 @@
   <div
     class="w-full"
     :style="{
-      backgroundColor: item.backgroundColor,
+      backgroundColor: block.backgroundColor,
     }"
   >
     <img
-      :src="item.src"
-      :alt="item.alt || 'Image'"
+      :src="block.src"
+      :alt="block.alt || 'Image'"
       :style="{
-        minWidth: item.width + 'px',
-        height: item.height + 'px',
-        borderRadius: item.borderRadius + 'px',
-        border: item.border + 'px ' + ' solid ' + item.borderColor,
+        maxWidth: block.width + 'px',
+        height: block.height + 'px',
+        borderRadius: block.borderRadius + 'px',
+        border: block.border + 'px ' + ' solid ' + block.borderColor,
       }"
       class="w-full"
     />
@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-  item: {
+  block: {
     type: Object,
     required: true,
   },

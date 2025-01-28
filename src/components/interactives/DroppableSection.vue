@@ -11,14 +11,46 @@
     >
       <p class="text-center">Drop Here</p>
       <div v-if="pageBuilderStore.getAllBuilderBlocks?.length">
-        <draggable class="dragArea list-group w-full" :list="pageBuilderStore.getAllBuilderBlocks">
-          <div v-for="(item, index) in pageBuilderStore.getAllBuilderBlocks" :key="item.uuid">
-            <div class="cursor-move my-4" :class="{'border-dashed border-[0.5px] border-amber-950 p-2' : item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid}">
-              <div class="z-10 flex items-center justify-end gap-4" v-if="item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid">
-                <p class="bg-white p-2 w-auto cursor-pointer" @click="pageBuilderStore.deleteBlockFromBuilder(index)">Delete</p>
-                <p class="bg-white p-2 w-auto cursor-pointer" @click="pageBuilderStore.duplicateBlockInBuilder(index)">Duplicate</p>
+        <draggable
+          class="dragArea list-group w-full grid grid-col-1 items-center justify-center"
+          :list="pageBuilderStore.getAllBuilderBlocks"
+        >
+          <div
+            v-for="(item, index) in pageBuilderStore.getAllBuilderBlocks"
+            :key="item.uuid"
+          >
+            <div
+              class="cursor-move my-4"
+              :class="{
+                'border-dashed border-[0.5px] border-amber-950 p-2':
+                  item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid,
+              }"
+            >
+              <div
+                class="z-10 flex items-center justify-end gap-4"
+                v-if="item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid"
+              >
+                <p
+                  class="bg-white p-2 w-auto cursor-pointer"
+                  @click="pageBuilderStore.deleteBlockFromBuilder(index)"
+                >
+                  Delete
+                </p>
+                <p
+                  class="bg-white p-2 w-auto cursor-pointer"
+                  @click="pageBuilderStore.duplicateBlockInBuilder(index)"
+                >
+                  Duplicate
+                </p>
               </div>
-              <ImageBlock :item="item" @click="pageBuilderStore.setIsEdittingBlock(item)" />
+              <ImageBlock v-if="item.blockType === 'image'"
+                :block="item"
+                @click="pageBuilderStore.setIsEdittingBlock(item, index)"
+              />
+              <LayoutBlock v-if="item.blockType === 'layout'"
+                :block="item"
+                @click="pageBuilderStore.setIsEdittingBlock(item, index)"
+              />
             </div>
           </div>
         </draggable>
@@ -30,6 +62,7 @@
 <script lang="ts" setup>
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import ImageBlock from "../../components/Blocks/ImageBlock.vue";
+import LayoutBlock from "../../components/Blocks/LayoutBlock.vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 
 const pageBuilderStore = usePageBuilderStore();

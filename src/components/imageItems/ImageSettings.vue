@@ -19,7 +19,7 @@
         class="cursor-move"
         v-for="(element, index) in pageBuilderStore.builderImages"
         :key="index"
-        @dragstart="handleDragStart($event, element)"
+        @dragstart="handleDragStart($event, element, index)"
         draggable="true"
       >
         <img
@@ -66,7 +66,8 @@ const handleImageUpload = (event: Event) => {
 };
 
 // Make the items draggable by adding draggable data
-const handleDragStart = (event: DragEvent, item: any) => {
+const handleDragStart = (event: DragEvent, item: any, index: any) => {
   event.dataTransfer?.setData("item", JSON.stringify(item));
+  event.dataTransfer?.setData("item-index", JSON.stringify(index));
 };
 </script>

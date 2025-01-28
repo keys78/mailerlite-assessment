@@ -27,7 +27,6 @@ import { usePageBuilderStore } from "../../stores/pagebuilderstore"
 const pageBuilderStore = usePageBuilderStore()
 
 const selectBlock = (val: string) => {
-  pageBuilderStore.setIsEditting(false)
   pageBuilderStore.selectBlock(val)
 }
 </script>
