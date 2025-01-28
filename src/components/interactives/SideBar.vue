@@ -21,15 +21,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import SvgIcons from "../../assets/icons/SvgIcons.vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore"
 
 const pageBuilderStore = usePageBuilderStore()
 
-const selectedBlock = ref('')
-
 const selectBlock = (val: string) => {
+  pageBuilderStore.setIsEditting(false)
   pageBuilderStore.selectBlock(val)
 }
 </script>

@@ -4,7 +4,8 @@
     <div class="w-full h-[88vh]">
       <Header />
       <div class="flex items-start space-x-3 mt-3 h-full">
-        <SelectionSideBar />
+        <StyleSideBar v-if="pageBuilderStore.isEditting" />
+        <SelectionSideBar v-else />
         <DroppableSection />
       </div>
     </div>
@@ -15,7 +16,10 @@
 import SideBar from "./components/interactives/SideBar.vue";
 import Header from "./components/interactives/Header.vue";
 import SelectionSideBar from "./components/interactives/SelectionSideBar.vue";
+import StyleSideBar from "./components/interactives/StyleSideBar.vue";
 import DroppableSection from "./components/interactives/DroppableSection.vue";
+import { usePageBuilderStore } from "./stores/pagebuilderstore";
 
+const pageBuilderStore = usePageBuilderStore()
 </script>
 

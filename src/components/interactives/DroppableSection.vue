@@ -12,8 +12,12 @@
       <p class="text-center">Drop Here</p>
       <div v-if="pageBuilderStore.getAllBuilderBlocks?.length">
         <draggable class="dragArea list-group w-full" :list="pageBuilderStore.getAllBuilderBlocks">
-          <div v-for="item in pageBuilderStore.getAllBuilderBlocks" :key="item.uuid">
-            <div class="cursor-move my-4" :class="{'border-dashed border border-amber-950 p-2' : item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid}">
+          <div v-for="(item, index) in pageBuilderStore.getAllBuilderBlocks" :key="item.uuid">
+            <div class="cursor-move my-4" :class="{'border-dashed border-[0.5px] border-amber-950 p-2' : item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid}">
+              <div class="z-10 flex items-center justify-end gap-4" v-if="item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid">
+                <p class="bg-white p-2 w-auto cursor-pointer" @click="pageBuilderStore.deleteBlockFromBuilder(index)">Delete</p>
+                <p class="bg-white p-2 w-auto cursor-pointer" @click="pageBuilderStore.duplicateBlockInBuilder(index)">Duplicate</p>
+              </div>
               <ImageBlock :item="item" @click="pageBuilderStore.setIsEdittingBlock(item)" />
             </div>
           </div>
