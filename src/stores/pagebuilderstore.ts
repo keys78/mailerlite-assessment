@@ -87,11 +87,12 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
 
       this.isEditting = false;
       const itemToDuplicate = this.builderBlocks[index];
+      const duplicatedItem = { ...itemToDuplicate, uuid: nanoid() };
 
       this.builderBlocks = [
         ...this.builderBlocks.slice(0, index + 1),
-        itemToDuplicate,
-        ...this.builderBlocks.slice(index + 1), 
+        duplicatedItem,
+        ...this.builderBlocks.slice(index + 1),
       ];
     },
   },
