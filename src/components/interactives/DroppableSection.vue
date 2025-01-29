@@ -1,15 +1,12 @@
 <template>
-  <div class="border rounded-[5px] bg-white w-full h-full p-2">
-    Droppable Space
-
-    <!-- Droppable Area -->
+  <div class="border border-gray-200 rounded-[5px] bg-[var(--editor)] w-full h-full p-2">
     <div
-      class="droppable-area p-5 mt-5 h-auto min-h-screen border-dashed border"
+      class="droppable-area p-5 h-auto min-h-screen border-dashed border"
       @drop.prevent="handleDrop"
       @dragover.prevent
       @dragenter.prevent
     >
-      <p class="text-center">Drop Here</p>
+      <p v-if="!pageBuilderStore.getAllBuilderBlocks?.length" class="text-center">Drop Here</p>
       <div v-if="pageBuilderStore.getAllBuilderBlocks?.length">
         <draggable
           class="dragArea list-group w-full grid grid-col-1 items-center justify-center"
@@ -79,10 +76,10 @@ const handleDrop = (event: DragEvent) => {
 .droppable-area {
   border-color: #bbb;
   border-radius: 6px;
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
 }
 
 .droppable-area:hover {
-  background-color: #f0f0f0;
+  background-color: var(--editorInteract);
 }
 </style>

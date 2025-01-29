@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div
+  <div class="">
+    <div class="p-4"
       :style="{
         backgroundColor: block.backgroundColor,
         borderRadius: block.borderRadius + 'px',
@@ -8,7 +8,7 @@
       }"
     >
       <draggable
-        class="dragArea list-group w-full grid gap-3 items-center justify-center"
+        class="dragArea list-group w-full grid gap-10 items-center justify-center"
         :class="{
           'grid-cols-2': block.layoutType === 'layoutType1',
           'grid-cols-1': block.layoutType === 'layoutType2',
@@ -21,7 +21,7 @@
           class=""
         >
           <div
-            class="cursor-move my-4"
+            class="w-full cursor-move my-4"
             :class="{
               'border-dashed border-[0.5px] border-amber-950 p-2':
                 item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid,

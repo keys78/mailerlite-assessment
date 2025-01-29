@@ -1,8 +1,10 @@
 <template>
   <div
-    class="w-full"
+    class="w-full flex items-center justify-center"
     :style="{
       backgroundColor: block.backgroundColor,
+      borderRadius: block.borderRadius + 'px',
+      border: block.border + 'px ' + ' solid ' + block.borderColor,
     }"
   >
     <img
@@ -11,8 +13,7 @@
       :style="{
         maxWidth: block.width + 'px',
         height: block.height + 'px',
-        borderRadius: block.borderRadius + 'px',
-        border: block.border + 'px ' + ' solid ' + block.borderColor,
+      borderRadius: block.borderRadius + 'px',
       }"
       class="w-full"
     />

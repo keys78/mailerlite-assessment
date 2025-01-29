@@ -17,8 +17,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
         blockType: "image",
         src: predefinedImage1,
         alt: "banner",
-        width: "200",
-        height: "200",
+        width: "",
+        height: "400",
         backgroundColor: "",
         border: "1",
         borderColor: "#000000",
@@ -29,8 +29,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
         blockType: "image",
         src: predefinedImage2,
         alt: "banner",
-        width: "200",
-        height: "200",
+        width: "",
+        height: "400",
         backgroundColor: "",
         border: "1",
         borderColor: "#000000",
@@ -54,8 +54,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
             blockType: "image",
             src: predefinedImage2,
             alt: "banner",
-            width: "200",
-            height: "200",
+            width: "",
+            height: "400",
             backgroundColor: "",
             border: "1",
             borderColor: "#000000",
@@ -84,8 +84,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
             blockType: "image",
             src: predefinedImage2,
             alt: "banner",
-            width: "200",
-            height: "200",
+            width: "",
+            height: "400",
             backgroundColor: "",
             border: "1",
             borderColor: "#000000",
@@ -120,8 +120,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
         blockType: "image",
         src: imageSrc,
         alt: "",
-        width: "200",
-        height: "200",
+        width: "",
+        height: "400",
         backgroundColor: "",
         border: "1",
         borderColor: "#000000",
@@ -156,6 +156,15 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
       this.isEditting = false;
       const itemToDuplicate = this.builderBlocks[index];
       const duplicatedItem = { ...itemToDuplicate, uuid: nanoid() };
+
+      // Step 2: Check if the duplicated item has items array
+      if (duplicatedItem.items && Array.isArray(duplicatedItem.items)) {
+        // Step 3: Iterate through the children and generate new uuids for them
+        duplicatedItem.items = duplicatedItem.items.map((item: any) => ({
+          ...item,
+          uuid: nanoid()
+        }));
+      }
 
       this.builderBlocks = [
         ...this.builderBlocks.slice(0, index + 1),
