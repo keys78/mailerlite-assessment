@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+.ck.ck-editor__main>.ck-editor__editable {
+  background-color: transparent !important;
+  box-shadow: none !important
+}
+
+.ck .ck-content {
+  padding: 20px !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-blurred {
+  border: 0 !important;
+  outline: 0 !important;
+}
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
 @theme {
   --breakpoint-480: 480px;
   --breakpoint-767: 767px;

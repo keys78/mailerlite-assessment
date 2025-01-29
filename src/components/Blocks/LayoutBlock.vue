@@ -1,10 +1,11 @@
 <template>
   <div class="">
-    <div class="p-4"
+    <div class="p-2"
       :style="{
         backgroundColor: block.backgroundColor,
         borderRadius: block.borderRadius + 'px',
         border: block.border + 'px ' + ' solid ' + block.borderColor,
+        margin: block.marginY + 'px' + ' ' + block.marginX + 'px'
       }"
     >
       <draggable
@@ -49,7 +50,7 @@ import { computed } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 import ImageBlock from "./ImageBlock.vue";
-import TextBlock from "./TextBlock.vue";
+import TextBlock from "./TextEditorBlock.vue";
 
 const pageBuilderStore = usePageBuilderStore();
 

@@ -44,7 +44,7 @@
       >
         Preview
       </button>
-      <button
+      <button @click="getAllData"
         class="py-2 rounded-[6px] bg-[var(--secondary)] 767:w-[140px] w-[70px] text-accent1 cursor-pointer"
       >
         Save
@@ -111,4 +111,11 @@ const toggleMobileSidebar = () => {
 const selectBlock = (val: string) => {
   pageBuilderStore.selectBlock(val);
 };
+
+const getAllData = () => {
+  const data = pageBuilderStore.getAllBuilderBlocks
+
+  console.log('builderData', JSON.stringify(data))
+  alert(JSON.stringify(data))
+}
 </script>

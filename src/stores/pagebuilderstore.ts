@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import { nanoid } from "nanoid";
-import predefinedImage1 from "../assets/img/stuthere_banner.png";
-import predefinedImage2 from "../assets/img/stuthere_banner.png"
+import { builderImages, builderLayouts, builderTextTypes } from "../utils/blockData";
 
 export const usePageBuilderStore = defineStore("pagebuilderstore", {
   state: () => ({
@@ -11,94 +10,9 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     isEdittingBlock: {} as any,
     isEdittingBlockIndex: null as any,
     isActiveLayout: {} as any,
-    builderImages: [
-      {
-        uuid: nanoid(),
-        blockType: "image",
-        src: predefinedImage1,
-        alt: "banner",
-        width: "",
-        height: "400",
-        backgroundColor: "",
-        border: "1",
-        borderColor: "#000000",
-        borderRadius: "1",
-      },
-      {
-        uuid: nanoid(),
-        blockType: "image",
-        src: predefinedImage2,
-        alt: "banner",
-        width: "",
-        height: "400",
-        backgroundColor: "",
-        border: "1",
-        borderColor: "#000000",
-        borderRadius: "1",
-      },
-    ],
-    builderLayouts: [
-      {
-        uuid: nanoid(),
-        blockType: "layout",
-        layoutType: "layoutType1",
-        iconName: "layout-1",
-        iconWidth: "100%",
-        iconHeight: "120",
-        border: "1",
-        borderColor: "#000000",
-        borderRadius: "1",
-        items: [
-          {
-            uuid: nanoid(),
-            blockType: "image",
-            src: predefinedImage2,
-            alt: "banner",
-            width: "",
-            height: "400",
-            backgroundColor: "",
-            border: "1",
-            borderColor: "#000000",
-            borderRadius: "1",
-          },
-          {
-            uuid: nanoid(),
-            blockType: "text",
-            content: "Hello World",
-          },
-        ],
-      },
-      {
-        uuid: nanoid(),
-        blockType: "layout",
-        layoutType: "layoutType2",
-        iconName: "layout-2",
-        iconWidth: "auto",
-        iconHeight: "120",
-        border: "1",
-        borderColor: "#000000",
-        borderRadius: "1",
-        items: [
-          {
-            uuid: nanoid(),
-            blockType: "image",
-            src: predefinedImage2,
-            alt: "banner",
-            width: "",
-            height: "400",
-            backgroundColor: "",
-            border: "1",
-            borderColor: "#000000",
-            borderRadius: "1",
-          },
-          {
-            uuid: nanoid(),
-            blockType: "text",
-            content: "Hello World",
-          },
-        ],
-      },
-    ],
+    builderImages: builderImages,
+    builderTextTypes: builderTextTypes,
+    builderLayouts: builderLayouts
   }),
 
   getters: {
@@ -135,8 +49,10 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     setIsEdittingBlock(block: Object, index: any, layout?: any) {
       this.isEditting = true;
       this.isEdittingBlock = block;
-      this.isEdittingBlockIndex = index
-      this.isActiveLayout = layout
+      this.isEdittingBlockIndex = index;
+      if(layout) {
+        this.isActiveLayout = layout;
+      }
     },
     addBlockToBuilder(block: any) {
       this.builderBlocks.push({ ...block });
@@ -162,7 +78,7 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
         // Step 3: Iterate through the children and generate new uuids for them
         duplicatedItem.items = duplicatedItem.items.map((item: any) => ({
           ...item,
-          uuid: nanoid()
+          uuid: nanoid(),
         }));
       }
 
@@ -173,18 +89,21 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
       ];
     },
     updateBuilderLayout(layoutBlock: any, newItem: Object) {
-        layoutBlock.items[this.isEdittingBlockIndex] = { ...newItem };
+      layoutBlock.items[this.isEdittingBlockIndex] = { ...newItem };
     },
     updateBlock(blockType: string, newBlock: any) {
-      this.isEditting = true
-      const isLBuilderBlockItem = this.builderBlocks.find(el => el.uuid === this.isEdittingBlock.uuid)
-      if (blockType === 'image') {
-       if(isLBuilderBlockItem) {
-         this.builderBlocks[this.isEdittingBlockIndex].src = newBlock.src;
-       } else {
-        this.isActiveLayout.items[this.isEdittingBlockIndex].src = newBlock.src;
-       }
+      this.isEditting = true;
+      const isLBuilderBlockItem = this.builderBlocks.find(
+        (el: any) => el.uuid === this.isEdittingBlock.uuid
+      );
+      if (blockType === "image") {
+        if (isLBuilderBlockItem) {
+          this.builderBlocks[this.isEdittingBlockIndex].src = newBlock.src;
+        } else {
+          this.isActiveLayout.items[this.isEdittingBlockIndex].src =
+            newBlock.src;
+        }
       }
-    }
+    },
   },
 });

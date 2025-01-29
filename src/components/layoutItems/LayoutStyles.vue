@@ -18,6 +18,23 @@
         v-model="pageBuilderStore.getIsEdittingBlock.border"
       />
     </div>
+    <div class="mb-4 flex items-center justify-between">
+      <label>Margin:</label>
+      <div class="flex items-center justify-between">
+        <input
+        type="number"
+        min="1"
+        class="border p-2 w-[50%] rounded-md"
+        v-model="pageBuilderStore.getIsEdittingBlock.marginY"
+      />
+      <input
+        type="number"
+        min="1"
+        class="border p-2 w-[50%] rounded-md"
+        v-model="pageBuilderStore.getIsEdittingBlock.marginX"
+      />
+      </div>
+    </div>
    <div class="mb-4 flex items-center justify-between">
         <label>Border Color:</label>
         <color-picker v-model:pureColor="pageBuilderStore.getIsEdittingBlock.borderColor"/>
