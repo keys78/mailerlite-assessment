@@ -2,13 +2,14 @@
   <div>
     <div>
       <button
-        class="p-4 bg-red-400 mb-4 cursor-pointer"
+        class="cursor-pointer rounded-[6px] p-3 text-center bg-[var(--secondary)] text-[var(--accent1A)] flex items-center justify-center space-x-3 w-full mb-3"
         @click="showImages = true"
       >
-        Change Image
+        <SvgIcons name="change-image" width="20" height="20" /> &nbsp;
+        {{ " " }} Change Image
       </button>
 
-      <div v-if="showImages" class="grid grid-cols-2 gap-3">
+      <div v-if="showImages" class="grid grid-cols-2 gap-3 mb-3">
         <div
           v-for="(element, index) in pageBuilderStore.builderImages"
           :key="index"
@@ -88,8 +89,9 @@ import { ref } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
+import SvgIcons from "../../assets/icons/SvgIcons.vue";
 
 const pageBuilderStore = usePageBuilderStore();
 
-const showImages = ref(false)
+const showImages = ref(false);
 </script>

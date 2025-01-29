@@ -1,6 +1,6 @@
 <template>
-  <div class="border rounded-[5px] bg-white max-w-[300px] w-full h-full p-2">
-    Styles
+  <div class="border rounded-[5px] bg-white w-full h-full p-2">
+    <p class="text-center py-2 font-bold bg-gray-200 rounded-[3px] mb-3"> Styles</p>
     <ImageStyles v-if="pageBuilderStore.getIsEdittingBlock?.blockType === 'image'" />
     <TextStyles  v-if="pageBuilderStore.getIsEdittingBlock?.blockType === 'text'" />
     <LayoutStyles v-if="pageBuilderStore.getIsEdittingBlock?.blockType === 'layout'" />

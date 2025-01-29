@@ -1,15 +1,15 @@
 <template>
   <div
     @click="toggleTheme"
-    class="rounded flex p-4 space-x-2 justify-center items-center cursor-pointer text-[var(--accent1A)]"
+    class="rounded flex 767:p-4 p-4 space-x-2 justify-center items-center cursor-pointer text-[var(--accent1A)]"
   >
     <div v-if="!isDarkMode" class="flex items-center justify-center flex-col">
-      <SvgIcons width="24" height="24" class="mb-1" name="moon" />
-      <span class="text-sm">Dark</span>
+      <SvgIcons class="767:mb-1 767:w-[24px] w-[20px] h-[24px]" name="moon" />
+      <span class="767:text-sm text-[12px]">Dark</span>
     </div>
     <div v-else class="flex items-center justify-center flex-col">
-      <SvgIcons width="24" height="24" class="mb-1" name="sun" />
-      <span class="text-sm">Light</span>
+      <SvgIcons width="24" height="24" class="767:mb-1" name="sun" />
+      <span class="767:text-sm text-[12px]">Light</span>
     </div>
   </div>
 </template>

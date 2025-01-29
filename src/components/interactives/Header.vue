@@ -1,13 +1,10 @@
 <template>
   <div
-    class="rounded-[6px] w-full flex items-center justify-between s-767:px-5 px-2 py-3 bg-[var(--primary)] text-[var(--accent1A)]"
+    class="rounded-[6px] w-full flex items-center justify-between 767:px-5 px-2 py-3 bg-[var(--primary)] text-[var(--accent1A)] sticky top-0 z-50"
   >
     <div>
       <div class="flex items-center space-x-3">
-        <div
-          class="767:hidden block"
-          @click="toggleMobileSidebar"
-        >
+        <div class="767:hidden block" @click="toggleMobileSidebar">
           <svg
             width="24"
             height="24"
@@ -38,14 +35,15 @@
         <h2 class="text-accent1">Design Board</h2>
       </div>
     </div>
-    <div class="flex s-767:space-x-5 space-x-2">
+    <div class="flex 767:space-x-5 space-x-2">
       <button
-        class="border border-gray-200 py-2 rounded-[6px] 767:w-[140px] w-[70px] text-accent1 cursor-pointer"
+        class="border border-gray-200 767:py-2 py-1 rounded-[6px] 767:w-[120px] w-[80px] text-accent1 cursor-pointer"
       >
         Preview
       </button>
-      <button @click="getAllData"
-        class="py-2 rounded-[6px] bg-[var(--secondary)] 767:w-[140px] w-[70px] text-accent1 cursor-pointer"
+      <button
+        @click="getAllData"
+        class="767:py-2 py-1 rounded-[6px] bg-[var(--secondary)] 767:w-[120px] w-[80px] text-accent1 cursor-pointer"
       >
         Save
       </button>
@@ -55,40 +53,40 @@
   <!-- mobile nav here -->
   <div
     v-if="showMobileSidebar"
-    class="767:hidden flex items-center justify-between px-5 rounded-[6px] mt-2 text-gray-200 bg-[var(--primary)]"
+    class="767:hidden flex items-center justify-between px-3 rounded-[6px] mt-1 text-gray-200 bg-[var(--primary)] h-[60px]"
   >
     <button
       @click="selectBlock('layout')"
-      class="cursor-pointer flex flex-col p-2 items-center jusitfy-center"
+      class="cursor-pointer flex flex-col p-1 items-center jusitfy-center w-[60px]"
       :class="{
-        'bg-[var(--secondary)] rounded-[6px] p-2 h-[60px] w-[70px]':
+        'bg-[var(--secondary)] rounded-[6px] p-1 w-[60px]':
           pageBuilderStore.selectedBlock === 'layout',
       }"
     >
-      <SvgIcons name="layout-icon" />
-      <p class="text-sm">Layouts</p>
+      <SvgIcons width="20px" height="20px" name="layout-icon" />
+      <p class="text-[12px]">Layouts</p>
     </button>
     <button
       @click="selectBlock('text')"
-      class="cursor-pointer flex flex-col p-2 items-center jusitfy-center"
+      class="cursor-pointer flex flex-col p-1 items-center jusitfy-center w-[60px]"
       :class="{
-        'bg-[var(--secondary)] rounded-[6px] p-2 h-[60px] w-[70px]':
+        'bg-[var(--secondary)] rounded-[6px] p-1 w-[60px]':
           pageBuilderStore.selectedBlock === 'text',
       }"
     >
-      <SvgIcons name="text-icon" />
-      <p class="text-sm">Text</p>
+      <SvgIcons width="20px" height="20px" name="text-icon" />
+      <p class="text-[12px]">Text</p>
     </button>
     <button
       @click="selectBlock('image')"
-      class="cursor-pointer flex flex-col p-2 items-center jusitfy-center"
+      class="cursor-pointer flex flex-col p-1 items-center jusitfy-center w-[60px]"
       :class="{
-        'bg-[var(--secondary)] rounded-[6px] p-2 h-[60px] w-[70px]':
+        'bg-[var(--secondary)] rounded-[6px] p-1 w-[60px]':
           pageBuilderStore.selectedBlock === 'image',
       }"
     >
-      <SvgIcons name="image-icon" />
-      <p class="text-sm">Image</p>
+      <SvgIcons width="20px" height="20px" name="image-icon" />
+      <p class="text-[12px]">Image</p>
     </button>
     <ThemeToggle />
   </div>
@@ -105,17 +103,17 @@ const pageBuilderStore = usePageBuilderStore();
 const showMobileSidebar = ref(true);
 
 const toggleMobileSidebar = () => {
-  showMobileSidebar.value = !showMobileSidebar.value
-}
+  showMobileSidebar.value = !showMobileSidebar.value;
+};
 
 const selectBlock = (val: string) => {
   pageBuilderStore.selectBlock(val);
 };
 
 const getAllData = () => {
-  const data = pageBuilderStore.getAllBuilderBlocks
+  const data = pageBuilderStore.getAllBuilderBlocks;
 
-  console.log('builderData', JSON.stringify(data))
-  alert(JSON.stringify(data))
-}
+  console.log("builderData", JSON.stringify(data));
+  alert(JSON.stringify(data));
+};
 </script>

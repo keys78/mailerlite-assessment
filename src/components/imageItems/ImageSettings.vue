@@ -1,7 +1,11 @@
 <template>
-  <div class="mt-10">
-    <button class="rounded-[6px] p-3 text-center border w-full mb-4">
-      <label for="imageUpload" class="cursor-pointer">Upload Image</label>
+  <div class="">
+    <button class="rounded-[6px] p-3 text-center w-full">
+      <label
+        for="imageUpload"
+        class="cursor-pointer rounded-[6px] p-3 text-center bg-[var(--secondary)] text-[var(--accent1A)] flex items-center justify-center space-x-3"
+        ><SvgIcons name="upload-image" width="20" height="20" /> &nbsp; {{' '}} Upload Image</label
+      >
       <input
         id="imageUpload"
         type="file"
@@ -12,11 +16,11 @@
     </button>
 
     <draggable
-      class="dragArea list-group w-full grid grid-cols-2 gap-3"
+      class="dragArea list-group 767:grid grid-cols-2 gap-3 flex items-center overflow-auto max-w-[100%]"
       :list="pageBuilderStore.builderImages"
     >
       <div
-        class="cursor-move"
+        class="cursor-move 767:min-w-auto min-w-[200px]"
         v-for="(element, index) in pageBuilderStore.builderImages"
         :key="index"
         @dragstart="handleDragStart($event, element, index)"
@@ -42,6 +46,7 @@
 import { ref } from "vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
+import SvgIcons from "../../assets/icons/SvgIcons.vue"
 
 const uploadedImages = ref<string[]>([]);
 const pageBuilderStore = usePageBuilderStore();

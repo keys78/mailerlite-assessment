@@ -1,6 +1,6 @@
 <template>
   <div
-    class="767:flex hidden flex-col justify-between items-center rounded-[6px] w-[100px] h-[97vh] bg-[var(--primary)]"
+    class="767:flex hidden flex-col justify-between items-center rounded-[6px] w-[100px] h-[97vh] bg-[var(--primary)] fixed"
   >
     <div>
       <div
@@ -19,7 +19,7 @@
               pageBuilderStore.selectedBlock === 'layout',
           }"
         >
-          <SvgIcons name="layout-icon" />
+          <SvgIcons width="24" height="24" name="layout-icon" />
           <p class="text-sm">Layouts</p>
         </button>
         <button
@@ -30,7 +30,7 @@
               pageBuilderStore.selectedBlock === 'text',
           }"
         >
-          <SvgIcons name="text-icon" />
+          <SvgIcons width="24" height="24" name="text-icon" />
           <p class="text-sm">Text</p>
         </button>
         <button
@@ -41,7 +41,7 @@
               pageBuilderStore.selectedBlock === 'image',
           }"
         >
-          <SvgIcons name="image-icon" />
+          <SvgIcons width="24" height="24" name="image-icon" />
           <p class="text-sm">Image</p>
         </button>
       </div>

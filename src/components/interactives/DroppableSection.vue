@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border border-gray-200 rounded-[5px] bg-[var(--editor)] w-full h-full p-2"
+    class="border border-gray-200 rounded-[5px] bg-[var(--editor)] w-full h-full p-2 767:mt-0 mt-4"
   >
     <div
       class="droppable-area p-5 h-auto min-h-screen border-dashed border"
@@ -31,24 +31,41 @@
               }"
             >
               <div
-                class="z-10 flex items-center justify-between gap-4"
+                class="z-10 flex items-center justify-between gap-4 mb-2"
                 v-if="item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid"
               >
                 <div class="cursor-move">
-                  <p>drag Icon</p>
-                </div>
-                <div>
                   <p
-                    class="bg-white p-2 w-auto cursor-pointer"
+                    class="bg-white rounded-[3px] p-1 w-auto flex items-center"
                     @click="pageBuilderStore.deleteBlockFromBuilder(index)"
                   >
-                    Delete
+                    <SvgIcon name="drag-icon" width="18" height="18" />
+                    &nbsp;{{ " " }}
+                    <span class="text-[14px]">Drag</span>
                   </p>
+                </div>
+                <div class="flex items-center space-x-3">
                   <p
-                    class="bg-white p-2 w-auto cursor-pointer"
+                    class="bg-white rounded-[3px] p-1 w-auto cursor-pointer flex items-center"
                     @click="pageBuilderStore.duplicateBlockInBuilder(index)"
                   >
-                    Duplicate
+                    <SvgIcon name="duplicate" width="18" height="18" /> &nbsp;{{
+                      " "
+                    }}
+                    <span class="text-[14px]">Duplicate</span>
+                  </p>
+                  <p
+                    class="bg-white rounded-[3px] p-1 w-auto cursor-pointer flex items-center border"
+                    @click="pageBuilderStore.deleteBlockFromBuilder(index)"
+                  >
+                    <SvgIcon
+                      name="delete"
+                      width="18"
+                      height="18"
+                      class="text-red-500"
+                    />
+                    &nbsp;{{ " " }}
+                    <span class="text-[14px]">Delete</span>
                   </p>
                 </div>
               </div>
@@ -81,6 +98,7 @@ import ImageBlock from "../../components/Blocks/ImageBlock.vue";
 import LayoutBlock from "../../components/Blocks/LayoutBlock.vue";
 import TextBlock from "../Blocks/TextEditorBlock.vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
+import SvgIcon from "../../assets/icons/SvgIcons.vue";
 
 const pageBuilderStore = usePageBuilderStore();
 
@@ -96,7 +114,7 @@ const handleDrop = (event: DragEvent) => {
 .droppable-area {
   border-color: #bbb;
   border-radius: 6px;
-  /* transition: all 0.3s ease-in-out; */
+  transition: all 0.3s ease-in-out;
 }
 
 .droppable-area:hover {

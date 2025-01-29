@@ -1,20 +1,23 @@
 <template>
   <div>
     <draggable
-      class="dragArea list-group w-full grid grid-cols-2 gap-3"
+      class="dragArea list-group 767:grid grid-cols-2 gap-1 flex items-center overflow-auto max-w-[100%]"
       :list="pageBuilderStore.builderTextTypes"
     >
       <div
-        class=""
+        class="px-1"
         v-for="(element, index) in pageBuilderStore.builderTextTypes"
         :key="index"
         @dragstart="handleDragStart($event, element, index)"
         draggable="true"
       >
         <button
-          class="cursor-move rounded-[6px] capitalize w-full text-center h-[60px] border mb-3 text-xl font-bold"
+          class="cursor-move rounded-[6px] capitalize w-full text-center flex items-center space-x-3 my-1 border border-gray-200 p-2"
         >
-          {{ element.name }}
+          <span>
+            <SvgIcon :name="element.iconName" width="18" height="18"
+          /></span>
+          <span> {{ element.name }}</span>
         </button>
       </div>
     </draggable>
@@ -22,9 +25,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
+import SvgIcon from "../../assets/icons/SvgIcons.vue";
 
 const pageBuilderStore = usePageBuilderStore();
 
