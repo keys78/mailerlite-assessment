@@ -1,20 +1,31 @@
 <template>
   <div
-    :style="editorStyles"
-    @click.stop="pageBuilderStore.setIsEdittingBlock(block, index)"
+    :style="{
+      backgroundColor: props.block.backgroundColor,
+      borderRadius: `${props.block.borderRadius || 1}px`,
+      border: `${props.block.border || 1}px solid ${props.block.borderColor}`,
+      padding: props.block.paddingY + 'px' + ' ' + props.block.paddingX + 'px',
+      justifyContent: props.block.alignment,
+    }"
+    :class="`w-[100%] flex items-center`"
+    @click.stop="pageBuilderStore.setIsEdittingBlock(block, index, layout)"
   >
     <ckeditor
       v-model="data"
       :editor="ClassicEditor"
       :config="config"
       :disabled="!pageBuilderStore.editorMode"
+      @focus="onEditorFocus"
+      @blur="onEditorBlur"
+      @input="onEditorInput"
+      @ready="onEditorReady"
     />
     <div></div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed } from "vue";
 import {
   ClassicEditor,
   Essentials,
@@ -37,6 +48,8 @@ import {
   Subscript,
   Superscript,
   Code,
+  FontSize,
+  Table,
 } from "ckeditor5";
 import { Ckeditor } from "@ckeditor/ckeditor5-vue";
 
@@ -52,9 +65,15 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  layout: {
+    type: Object,
+    required: false,
+  },
 });
 const pageBuilderStore = usePageBuilderStore();
 const data = ref(props.block.content || "<p>Hello World!</p>");
+const editorFocused = ref(false);
+let editorInstance: any = null; // To store the CKEditor instance
 
 const config = computed(() => {
   return {
@@ -80,6 +99,8 @@ const config = computed(() => {
       Subscript,
       Superscript,
       Code,
+      FontSize,
+      Table,
     ],
     toolbar: {
       items: filteredToolBarItems.value,
@@ -105,6 +126,7 @@ const toolbarItems: any = ref([
   "superscript",
   "code",
   "|",
+  "table",
   "link",
   "blockQuote",
   "codeBlock",
@@ -132,25 +154,6 @@ const filteredToolBarItems = computed(() => {
           "redo",
           "|",
           "heading",
-          "fontfamily",
-          "fontsize",
-          "fontColor",
-          "fontBackgroundColor",
-          "|",
-          "bold",
-          "italic",
-          "code",
-          "alignment",
-        ].includes(item)
-      );
-      break;
-
-    case "paragraph":
-      // Paragraph needs standard text formatting tools
-      toolbar = toolbar.filter((item) =>
-        [
-          "undo",
-          "redo",
           "|",
           "fontfamily",
           "fontsize",
@@ -162,10 +165,57 @@ const filteredToolBarItems = computed(() => {
           "strikethrough",
           "subscript",
           "superscript",
+          "code",
+          "|",
+          "table",
           "link",
           "blockQuote",
           "codeBlock",
+          "|",
           "alignment",
+          "|",
+          "bulletedList",
+          "numberedList",
+          "todoList",
+          "outdent",
+          "indent",
+        ].includes(item)
+      );
+      break;
+
+    case "paragraph":
+      // Paragraph needs standard text formatting tools
+      toolbar = toolbar.filter((item) =>
+        [
+          "undo",
+          "redo",
+          "|",
+          "heading",
+          "|",
+          "fontfamily",
+          "fontsize",
+          "fontColor",
+          "fontBackgroundColor",
+          "|",
+          "bold",
+          "italic",
+          "strikethrough",
+          "subscript",
+          "superscript",
+          "code",
+          "|",
+          "table",
+          "link",
+          "blockQuote",
+          "codeBlock",
+          "|",
+          "alignment",
+          "|",
+          "bulletedList",
+          "numberedList",
+          "todoList",
+          "outdent",
+          "indent",
         ].includes(item)
       );
       break;
@@ -190,7 +240,21 @@ const filteredToolBarItems = computed(() => {
     case "table":
       // For tables, only keep table-related options
       toolbar = toolbar.filter((item) =>
-        ["undo", "redo", "|", "blockQuote", "codeBlock"].includes(item)
+        [
+          "table",
+          "undo",
+          "redo",
+          "|",
+          "fontfamily",
+          "fontsize",
+          "fontColor",
+          "fontBackgroundColor",
+          "|",
+          "bold",
+          "italic",
+          "strikethrough",
+          "link",
+        ].includes(item)
       );
       break;
 
@@ -236,6 +300,7 @@ const filteredToolBarItems = computed(() => {
           "link",
           "blockQuote",
           "codeBlock",
+          "table",
           "|",
           "alignment",
         ].includes(item)
@@ -243,27 +308,44 @@ const filteredToolBarItems = computed(() => {
       break;
   }
 
-  return pageBuilderStore.editorMode
-    ? toolbar
-    : [];
+  return pageBuilderStore.editorMode ? toolbar : [];
 });
 
-// const isActiveEl = computed(() => {
-//   return props.block.uuid === pageBuilderStore.getIsEdittingBlock.uuid
-// })
+const onEditorReady = (editor: any) => {
+  editorInstance = editor;
+  // Use CKEditor's API to get the toolbar associated with the editor
+  const toolbar : any = editor.ui.view.toolbar.element; 
+  if (toolbar) {
+    // Add the unique UUID class to the toolbar of the current editor
+    toolbar.classList.add(`ck-${props.block.uuid}`);
+  }
+};
 
-const editorStyles = computed(() => ({
-  backgroundColor: props.block.backgroundColor,
-  borderRadius: `${props.block.borderRadius || 1}px`,
-  border: `${props.block.border || 1}px solid ${props.block.borderColor}`,
-  padding: props.block.paddingY + 'px' + ' ' + props.block.paddingX + 'px',
-}));
+const onEditorFocus = () => {
+  editorFocused.value = true;
+  const toolbar : any = document.querySelector(`.ck-${props.block.uuid} > .ck-toolbar__items`);
+  if (toolbar) {
+    toolbar.style.display = "flex";  // Show the toolbar when the editor gains focus
+  }
+};
 
-onMounted(() => {
-  console.log("id1", props.block.uuid);
-  console.log("id2", pageBuilderStore.isEdittingBlock.uuid);
-});
+const onEditorBlur = () => {
+  editorFocused.value = false;
+  const toolbar : any = document.querySelector(`.ck-${props.block.uuid} > .ck-toolbar__items`);
+  if (toolbar) {
+    toolbar.style.display = "none"; // Hide the toolbar when the editor loses focus
+  }
+};
+
+const onEditorInput = () => {
+  editorFocused.value = true;
+  if (editorInstance) {
+    const editorHtmlContent = editorInstance.getData();
+    data.value = editorHtmlContent;
+    pageBuilderStore.setTextContent(data.value);
+  }
+};
+
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

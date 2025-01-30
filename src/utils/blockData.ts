@@ -20,8 +20,9 @@ export const builderImages: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
   {
     uuid: nanoid(),
@@ -34,8 +35,9 @@ export const builderImages: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
   {
     uuid: nanoid(),
@@ -48,8 +50,9 @@ export const builderImages: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 ];
 export const builderTextTypes = [
@@ -61,15 +64,14 @@ export const builderTextTypes = [
     iconName: "heading",
     content:
       "<h1 style=\"color:hsl(30, 75%, 60%);font-family:'Trebuchet MS', Helvetica, sans-serif;font-weight:800;font-size:60px;\">This is a heading</h1>",
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
+
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Paragraph
@@ -80,15 +82,14 @@ export const builderTextTypes = [
     iconName: "paragraph",
     content:
       "<p style=\"font-family:'Georgia', serif;font-size:16px;line-height:1.6;color:#333;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.</p>",
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
+
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Link
@@ -99,15 +100,14 @@ export const builderTextTypes = [
     iconName: "link",
     content:
       '<a href="https://www.example.com" style="color:hsl(210, 100%, 40%);text-decoration:none;">Click here to visit Example</a>',
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
+
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Code Block
@@ -118,24 +118,23 @@ export const builderTextTypes = [
     iconName: "code",
     content:
       "<pre style=\"background-color:#f5f5f5;padding:10px;border-radius:5px;font-family:monospace;color:#333;\"><code>const greeting = 'Hello, world!';\nconsole.log(greeting);</code></pre>",
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
+
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Table
-{
-  uuid: nanoid(),
-  blockType: "text",
-  name: "table",
-  iconName: "table",
-  content: `
+  {
+    uuid: nanoid(),
+    blockType: "text",
+    name: "table",
+    iconName: "table",
+    content: `
     <table style="width:100%;border-collapse:collapse;border:1px solid #ddd;">
       <thead>
         <tr>
@@ -155,18 +154,13 @@ export const builderTextTypes = [
       </tbody>
     </table>
   `,
-  fontSize: "16",
-  fontWeight: "800",
-  lineHeight: "2",
-  backgroundColor: "transparent",
-  border: "0",
-  borderColor: "transparent",
-  borderRadius: "1",
-  paddingX: "10",
-  paddingY: "20",
-}
-,
-
+    backgroundColor: "transparent",
+    border: "0",
+    borderColor: "transparent",
+    borderRadius: "1",
+    paddingX: "10",
+    paddingY: "40",
+  },
   // Ordered List
   {
     uuid: nanoid(),
@@ -175,15 +169,13 @@ export const builderTextTypes = [
     iconName: "ordered-list",
     content:
       '<ol style="font-family:\'Arial\', sans-serif;font-size:16px;color:#333;"><li style="padding:5px;">First item in the list</li><li style="padding:5px;">Second item in the list</li><li style="padding:5px;">Third item in the list</li></ol>',
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Unordered List
@@ -194,15 +186,13 @@ export const builderTextTypes = [
     iconName: "unordered-list",
     content:
       '<ul style="font-family:\'Arial\', sans-serif;font-size:16px;color:#333;"><li style="padding:5px;">List item 1</li><li style="padding:5px;">List item 2</li><li style="padding:5px;">List item 3</li></ul>',
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Blockquote
@@ -213,15 +203,13 @@ export const builderTextTypes = [
     iconName: "block-quote",
     content:
       "<blockquote style=\"font-family:'Georgia', serif;font-size:18px;line-height:1.6;color:#555;padding:15px;border-left:5px solid #ccc;margin:10px 0;\">This is a blockquote. A long-established fact that a reader will be distracted by the readable content of a page.</blockquote>",
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 
   // Horizontal Rule
@@ -231,15 +219,13 @@ export const builderTextTypes = [
     name: "hr",
     iconName: "hr",
     content: '<hr style="border:0;border-top:1px solid #ddd;margin:20px 0;">',
-    fontSize: "40",
-    fontWeight: "800",
-    lineHeight: "2",
     backgroundColor: "transparent",
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "10",
-    paddingY: "20",
+    paddingX: "40",
+    paddingY: "40",
+    alignment: "center",
   },
 ];
 export const builderLayouts: any = [
@@ -254,6 +240,7 @@ export const builderLayouts: any = [
     borderRadius: "1",
     paddingX: "40",
     paddingY: "40",
+    alignment: "center",
     items: [
       {
         uuid: nanoid(),
@@ -266,6 +253,9 @@ export const builderLayouts: any = [
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
       {
         uuid: nanoid(),
@@ -287,13 +277,13 @@ export const builderLayouts: any = [
             <li>Boost conversions and sales.</li>
           </ul>
         `,
-        fontSize: "40",
-        fontWeight: "800",
-        lineHeight: "2",
         backgroundColor: "transparent",
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
     ],
   },
@@ -308,6 +298,7 @@ export const builderLayouts: any = [
     borderRadius: "1",
     paddingX: "40",
     paddingY: "40",
+    alignment: "center",
     items: [
       {
         uuid: nanoid(),
@@ -320,6 +311,9 @@ export const builderLayouts: any = [
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
       {
         uuid: nanoid(),
@@ -341,13 +335,13 @@ export const builderLayouts: any = [
             <li>Use data to optimize growth.</li>
           </ul>
         `,
-        fontSize: "40",
-        fontWeight: "800",
-        lineHeight: "2",
         backgroundColor: "transparent",
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
     ],
   },
@@ -362,6 +356,7 @@ export const builderLayouts: any = [
     borderRadius: "1",
     paddingX: "40",
     paddingY: "40",
+    alignment: "center",
     items: [
       {
         uuid: nanoid(),
@@ -374,6 +369,9 @@ export const builderLayouts: any = [
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
       {
         uuid: nanoid(),
@@ -386,6 +384,9 @@ export const builderLayouts: any = [
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
     ],
   },
@@ -400,6 +401,7 @@ export const builderLayouts: any = [
     borderRadius: "1",
     paddingX: "40",
     paddingY: "40",
+    alignment: "center",
     items: [
       {
         uuid: nanoid(),
@@ -421,13 +423,13 @@ export const builderLayouts: any = [
             <li>Boost conversions and sales.</li>
           </ul>
         `,
-        fontSize: "40",
-        fontWeight: "800",
-        lineHeight: "2",
         backgroundColor: "transparent",
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
       {
         uuid: nanoid(),
@@ -449,13 +451,13 @@ export const builderLayouts: any = [
             <li>Use data to optimize growth.</li>
           </ul>
         `,
-        fontSize: "40",
-        fontWeight: "800",
-        lineHeight: "2",
         backgroundColor: "transparent",
         border: "0",
         borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
+        alignment: "center",
       },
     ],
   },

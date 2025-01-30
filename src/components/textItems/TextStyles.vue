@@ -1,28 +1,18 @@
 <template>
   <div>
     <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
-      <label>Font Size:</label>
-      <input
-        type="number"
-        min="10"
-        max="100"
-        class="border p-2 w-[50%] rounded-md border-[var(--borderOne)]"
-        v-model="pageBuilderStore.getIsEdittingBlock.fontSize"
-      />
-    </div>
-    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Font weight:</label>
-      <select name="fontFamily" id="">
-        <option value="0">400</option>
-        <option value="0">500</option>
-        <option value="0">600</option>
-        <option value="0">700</option>
-        <option value="0">800</option>
+      <select name="fontFamily" id="" v-model="pageBuilderStore.getIsEdittingBlock.fontWeight">
+        <option value="400">400</option>
+        <option value="500">500</option>
+        <option value="600">600</option>
+        <option value="700">700</option>
+        <option value="800">800</option>
       </select>
     </div>
     <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Line Height:</label>
-      <select name="fontFamily" id="">
+      <select name="fontFamily" id="" v-model="pageBuilderStore.getIsEdittingBlock.lineHeight">
         <option value="0">Arial</option>
         <option value="0">Times New</option>
         <option value="0">Calibra</option>
@@ -75,6 +65,14 @@
           v-model="pageBuilderStore.getIsEdittingBlock.paddingX"
         />
       </div>
+    </div>
+     <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
+      <label>Block Alignment:</label>
+      <select name="fontFamily" id="" v-model="pageBuilderStore.getIsEdittingBlock.alignment">
+        <option value="center">Center</option>
+        <option value="start">Start</option>
+        <option value="end">End</option>
+      </select>
     </div>
   </div>
 </template>

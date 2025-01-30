@@ -98,6 +98,14 @@
         />
       </div>
     </div>
+     <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
+      <label>Block Alignment:</label>
+      <select name="fontFamily" id="" v-model="pageBuilderStore.getIsEdittingBlock.alignment">
+        <option value="center">Center</option>
+        <option value="start">Start</option>
+        <option value="end">End</option>
+      </select>
+    </div>
   </div>
 </template>
 

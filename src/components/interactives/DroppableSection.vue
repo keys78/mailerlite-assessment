@@ -16,7 +16,7 @@
       </p>
       <div class="w-full" v-if="pageBuilderStore.getAllBuilderBlocks?.length">
         <draggable
-          class="dragArea list-group w-full grid grid-col-1 items-center justify-center"
+          class="dragArea list-group w-full grid grid-col-1"
           :list="pageBuilderStore.getAllBuilderBlocks"
         >
           <div
@@ -95,7 +95,6 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import ImageBlock from "../../components/Blocks/ImageBlock.vue";
 import LayoutBlock from "../../components/Blocks/LayoutBlock.vue";
@@ -112,16 +111,13 @@ const handleDrop = (event: DragEvent) => {
   }
 };
 
-onMounted(() => {
-  console.log("id3", pageBuilderStore.isEdittingBlock);
-});
 </script>
 
 <style scoped>
 .droppable-area {
   border-color: #bbb;
   border-radius: 6px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .droppable-area:hover {

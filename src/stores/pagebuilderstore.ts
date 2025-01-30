@@ -97,11 +97,11 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     },
     updateBlock(blockType: string, newBlock: any) {
       this.isEditting = true;
-      const isLBuilderBlockItem = this.builderBlocks.find(
+      const isBuilderBlockItem = this.builderBlocks.find(
         (el: any) => el.uuid === this.isEdittingBlock.uuid
       );
       if (blockType === "image") {
-        if (isLBuilderBlockItem) {
+        if (isBuilderBlockItem) {
           this.builderBlocks[this.isEdittingBlockIndex].src = newBlock.src;
         } else {
           this.isActiveLayout.items[this.isEdittingBlockIndex].src =
@@ -111,6 +111,9 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     },
     toggleEditorMode(bool: boolean) {
       this.editorMode = bool
+    },
+    setTextContent(content: any) {
+      this.isEdittingBlock.content = content
     }
   },
 });

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="w-[100%] flex items-center justify-center"
+    :class="`w-[100%] flex items-center`"
     :style="{
       backgroundColor: block.backgroundColor,
-      borderRadius: block.borderRadius + 'px',
       border: block.border + 'px ' + ' solid ' + block.borderColor,
       padding: block.paddingY + 'px' + ' ' + block.paddingX + 'px',
+      justifyContent: block.alignment
     }"
-      @click.stop="pageBuilderStore.setIsEdittingBlock(block, index)"
+    @click.stop="pageBuilderStore.setIsEdittingBlock(block, index, layout)"
   >
     <img
       :src="block.src"
@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 
-const pageBuilderStore = usePageBuilderStore()
+const pageBuilderStore = usePageBuilderStore();
 defineProps({
   block: {
     type: Object,
@@ -35,8 +35,9 @@ defineProps({
     type: Number,
     required: true,
   },
+  layout: {
+    type: Object,
+    required: false,
+  },
 });
 </script>
-
-
-

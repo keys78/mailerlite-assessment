@@ -1,39 +1,5 @@
 @import "tailwindcss";
 
-.ck.ck-editor__main>.ck-editor__editable {
-  width: 100% !important;
-  background-color: transparent !important;
-  box-shadow: none !important
-}
-
-.ck .ck-content {
-  padding: 20px !important;
-  border: 0 !important;
-  outline: 0 !important;
-}
-/* Initially hide the sticky panel content */
-.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-sticky-panel__content {
-  display: none !important;
-}
-
-/* Show the sticky panel content only when the editor is focused */
-.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline.ck-focused .ck-sticky-panel__content {
-  display: block !important;
-}
-
-.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content {
-  border: 0 !important;
-}
-
-.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-blurred {
-  border: 0 !important;
-  outline: 0 !important;
-}
-.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline {
-  border: 0 !important;
-  outline: 0 !important;
-}
-
 @theme {
   --breakpoint-480: 480px;
   --breakpoint-767: 767px;
@@ -61,7 +27,7 @@
       --tetiary: #0d1b2a;
       --editor: #040410;
       --editorInteract: #0d1218;
-      --accent1: #000000;
+      --accent1: #c6c4c4;
       --accent1A: #ffffff;
       --accent1B: #c6c4c4;
       --borderOne: #242428;
@@ -74,7 +40,7 @@
     --tetiary: #0d1b2a;
     --editor: #040410;
     --editorInteract: #0d1218;
-    --accent1: #000000;
+    --accent1: #c6c4c4;
     --accent1A: #ffffff;
     --accent1B: #c6c4c4;
     --borderOne: #242428;
@@ -93,7 +59,7 @@
   }
 
   html {
-    @apply bg-[var(--tetiary)] scroll-smooth text-[var(--accent1)]; transition: all 0.3s ease-in-out;
+    @apply bg-[var(--tetiary)] scroll-smooth text-[var(--accent1)]; transition: all 0.1s ease-in-out;
   }
 
   body {
@@ -101,9 +67,47 @@
   }
 }
 
-
-
 :root {
   padding: 10px;
   box-sizing: border-box;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  width: 100% !important;
+  background-color: transparent !important;
+  box-shadow: none !important
+}
+
+.ck .ck-content {
+  padding: 20px !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+/* Initially hide the sticky panel content */
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-sticky-panel__content {
+  display: none !important;
+}
+
+/* Show the sticky panel content only when the editor is focused */
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline.ck-focused .ck-sticky-panel__content {
+  display: block !important;
+}
+
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content {
+  border: 0 !important;
+}
+
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-blurred {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline {
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
+  @apply 767:!flex-wrap
 }

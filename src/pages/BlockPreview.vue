@@ -1,5 +1,5 @@
 <template>
-  <div class="border rounded-[5px] w-full h-full p-2">
+  <div class="border border-[var(--borderOne)] rounded-[5px] w-full h-full p-2">
     <!-- Droppable Area -->
     <div
       class="h-auto min-h-screen m-auto"

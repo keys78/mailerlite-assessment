@@ -1,22 +1,23 @@
 <template>
   <div class="">
     <div
-      class=""
+      class="w-[100%] flex items-center justify-center"
       :style="{
         backgroundColor: block.backgroundColor,
         borderRadius: block.borderRadius + 'px',
         border: block.border + 'px ' + ' solid ' + block.borderColor,
         padding: block.paddingY + 'px' + ' ' + block.paddingX + 'px',
+        justifyContent: block.alignment
       }"
       @click.self="pageBuilderStore.setIsEdittingBlock(block, index)"
     >
       <draggable
         :disabled="!pageBuilderStore.editorMode"
-        class="dragArea list-group w-full grid gap-10 items-center justify-center"
-        :class="{
-          'grid-cols-2': ['layoutType1', 'layoutType3', 'layoutType4'].includes(block.layoutType),
-          'grid-cols-1': block.layoutType === 'layoutType2',
-        }"
+       :class="[
+          'dragArea list-group w-full grid gap-10 items-center justify-center',
+          { '767:grid-cols-2 grid-cols-1': ['layoutType1', 'layoutType3', 'layoutType4'].includes(block.layoutType) },
+          { 'grid-cols-1': block.layoutType === 'layoutType2' }
+        ]"
         :list="block.items"
       >
         <div v-for="(item, idx) in block.items" :key="idx" class="">
@@ -33,11 +34,13 @@
               v-if="item.blockType === 'image'"
               :block="item"
               :index="idx"
+              :layout="block"
             />
             <TextBlock
               v-if="item.blockType === 'text'"
               :block="item"
               :index="idx"
+              :layout="block"
             />
           </div>
         </div>
