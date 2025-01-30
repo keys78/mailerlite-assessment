@@ -1,6 +1,6 @@
 <template>
   <div>
-    <draggable
+    <div
       class="dragArea list-group 767:grid grid-cols-2 gap-1 flex items-center overflow-auto max-w-[100%]"
       :list="pageBuilderStore.builderTextTypes"
     >
@@ -20,12 +20,11 @@
           <span> {{ element.name }}</span>
         </button>
       </div>
-    </draggable>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import SvgIcon from "../../assets/icons/SvgIcons.vue";
 

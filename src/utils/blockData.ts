@@ -252,8 +252,8 @@ export const builderLayouts: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "20",
-    paddingY: "30",
+    paddingX: "40",
+    paddingY: "40",
     items: [
       {
         uuid: nanoid(),
@@ -306,8 +306,8 @@ export const builderLayouts: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "20",
-    paddingY: "30",
+    paddingX: "40",
+    paddingY: "40",
     items: [
       {
         uuid: nanoid(),
@@ -360,8 +360,8 @@ export const builderLayouts: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "20",
-    paddingY: "30",
+    paddingX: "40",
+    paddingY: "40",
     items: [
       {
         uuid: nanoid(),
@@ -398,8 +398,8 @@ export const builderLayouts: any = [
     border: "0",
     borderColor: "transparent",
     borderRadius: "1",
-    paddingX: "20",
-    paddingY: "30",
+    paddingX: "40",
+    paddingY: "40",
     items: [
       {
         uuid: nanoid(),

@@ -6,7 +6,7 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
   state: () => ({
     builderBlocks: [] as any,
     editorMode: true,
-    selectedBlock: "layout",
+    selectedBlock: "text",
     isEditting: false,
     isEdittingBlock: {} as any,
     isEdittingBlockIndex: null as any,
@@ -77,9 +77,9 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
       const itemToDuplicate = this.builderBlocks[index];
       const duplicatedItem = { ...itemToDuplicate, uuid: nanoid() };
 
-      // Step 2: Check if the duplicated item has items array
+      // Check if the duplicated item has items array
       if (duplicatedItem.items && Array.isArray(duplicatedItem.items)) {
-        // Step 3: Iterate through the children and generate new uuids for them
+        // Iterate through the children and generate new uuids for them
         duplicatedItem.items = duplicatedItem.items.map((item: any) => ({
           ...item,
           uuid: nanoid(),

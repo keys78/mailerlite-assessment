@@ -1,5 +1,5 @@
 <template>
-  <draggable
+  <div
     class="dragArea list-group 767:grid grid-cols-1 gap-3 flex items-center overflow-auto max-w-[100%]"
     :list="pageBuilderStore.builderLayouts"
   >
@@ -16,11 +16,10 @@
         class="border border-[var(--borderOne)] rounded-[6px] w-full mb-3 p-2"
       />
     </div>
-  </draggable>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 
 const pageBuilderStore = usePageBuilderStore();

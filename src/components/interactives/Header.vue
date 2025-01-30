@@ -56,17 +56,6 @@
     class="767:hidden flex items-center justify-between px-3 rounded-[6px] mt-1 text-gray-200 bg-[var(--primary)] h-[60px]"
   >
     <button
-      @click="selectBlock('layout')"
-      class="cursor-pointer flex flex-col p-1 items-center jusitfy-center w-[60px]"
-      :class="{
-        'bg-[var(--secondary)] rounded-[6px] p-1 w-[60px]':
-          pageBuilderStore.selectedBlock === 'layout',
-      }"
-    >
-      <SvgIcons width="20px" height="20px" name="layout-icon" />
-      <p class="text-[12px]">Layouts</p>
-    </button>
-    <button
       @click="selectBlock('text')"
       class="cursor-pointer flex flex-col p-1 items-center jusitfy-center w-[60px]"
       :class="{
@@ -87,6 +76,17 @@
     >
       <SvgIcons width="20px" height="20px" name="image-icon" />
       <p class="text-[12px]">Image</p>
+    </button>
+    <button
+      @click="selectBlock('layout')"
+      class="cursor-pointer flex flex-col p-1 items-center jusitfy-center w-[60px]"
+      :class="{
+        'bg-[var(--secondary)] rounded-[6px] p-1 w-[60px]':
+          pageBuilderStore.selectedBlock === 'layout',
+      }"
+    >
+      <SvgIcons width="20px" height="20px" name="layout-icon" />
+      <p class="text-[12px]">Layouts</p>
     </button>
     <ThemeToggle />
   </div>

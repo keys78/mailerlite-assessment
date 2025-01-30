@@ -12,17 +12,6 @@
         class="flex flex-col items-center justify-center space-y-8 mt-5 text-gray-200"
       >
         <button
-          @click="selectBlock('layout')"
-          class="cursor-pointer flex flex-col p-2 items-center jusitfy-center"
-          :class="{
-            'bg-[var(--secondary)] rounded-[6px] p-2 h-[60px] w-[70px]':
-              pageBuilderStore.selectedBlock === 'layout',
-          }"
-        >
-          <SvgIcons width="24" height="24" name="layout-icon" />
-          <p class="text-sm">Layouts</p>
-        </button>
-        <button
           @click="selectBlock('text')"
           class="cursor-pointer flex flex-col p-2 items-center jusitfy-center"
           :class="{
@@ -43,6 +32,17 @@
         >
           <SvgIcons width="24" height="24" name="image-icon" />
           <p class="text-sm">Image</p>
+        </button>
+        <button
+          @click="selectBlock('layout')"
+          class="cursor-pointer flex flex-col p-2 items-center jusitfy-center"
+          :class="{
+            'bg-[var(--secondary)] rounded-[6px] p-2 h-[60px] w-[70px]':
+              pageBuilderStore.selectedBlock === 'layout',
+          }"
+        >
+          <SvgIcons width="24" height="24" name="layout-icon" />
+          <p class="text-sm">Layouts</p>
         </button>
       </div>
     </div>

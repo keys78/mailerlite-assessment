@@ -16,7 +16,7 @@
       />
     </button>
 
-    <draggable
+    <div
       class="dragArea list-group 767:grid grid-cols-2 gap-3 flex items-center overflow-auto max-w-[100%]"
       :list="pageBuilderStore.builderImages"
     >
@@ -39,13 +39,12 @@
           <SvgIcons name="delete" width="24" height="24" class="text-red-500" />
         </button>
       </div>
-    </draggable>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import SvgIcons from "../../assets/icons/SvgIcons.vue";
 

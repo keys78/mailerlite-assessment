@@ -1,47 +1,51 @@
 <template>
   <div>
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Border Radius:</label>
       <input
         type="number"
         min="0"
-        class="border p-2 w-[50%] rounded-md"
+        class="border border-[var(--borderOne)] p-2 w-[50%] rounded-md"
         v-model="pageBuilderStore.getIsEdittingBlock.borderRadius"
       />
     </div>
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Border:</label>
       <input
         type="number"
         min="0"
-        class="border p-2 w-[50%] rounded-md"
+        class="border border-[var(--borderOne)] p-2 w-[50%] rounded-md"
         v-model="pageBuilderStore.getIsEdittingBlock.border"
       />
     </div>
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Padding:</label>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between w-[50%]">
         <input
-        type="number"
-        min="1"
-        class="border p-2 w-[50%] rounded-md"
-        v-model="pageBuilderStore.getIsEdittingBlock.paddingY"
-      />
-      <input
-        type="number"
-        min="1"
-        class="border p-2 w-[50%] rounded-md"
-        v-model="pageBuilderStore.getIsEdittingBlock.paddingX"
-      />
+          type="number"
+          min="1"
+          class="border border-[var(--borderOne)] p-2 w-[50%] rounded-md"
+          v-model="pageBuilderStore.getIsEdittingBlock.paddingY"
+        /> &nbsp; &nbsp;
+        <input
+          type="number"
+          min="1"
+          class="border border-[var(--borderOne)] p-2 w-[50%] rounded-md"
+          v-model="pageBuilderStore.getIsEdittingBlock.paddingX"
+        />
       </div>
     </div>
-   <div class="mb-4 flex items-center justify-between">
-        <label>Border Color:</label>
-        <color-picker v-model:pureColor="pageBuilderStore.getIsEdittingBlock.borderColor"/>
+    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
+      <label>Border Color:</label>
+      <color-picker
+        v-model:pureColor="pageBuilderStore.getIsEdittingBlock.borderColor"
+      />
     </div>
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Background Color:</label>
-       <color-picker v-model:pureColor="pageBuilderStore.getIsEdittingBlock.backgroundColor"/>
+      <color-picker
+        v-model:pureColor="pageBuilderStore.getIsEdittingBlock.backgroundColor"
+      />
     </div>
   </div>
 </template>
@@ -52,5 +56,4 @@ import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
 
 const pageBuilderStore = usePageBuilderStore();
-
 </script>
