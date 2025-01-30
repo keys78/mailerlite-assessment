@@ -240,21 +240,21 @@
   >
     <path
       d="M2.67004 7.17003V5.35003C2.67004 4.20003 3.60004 3.28003 4.74004 3.28003H19.26C20.41 3.28003 21.33 4.21003 21.33 5.35003V7.17003"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M12 20.7201V4.11011"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M8.06006 20.72H15.9401"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -271,14 +271,14 @@
   >
     <path
       d="M13.06 10.9399C15.31 13.1899 15.31 16.8299 13.06 19.0699C10.81 21.3099 7.16997 21.3199 4.92997 19.0699C2.68997 16.8199 2.67997 13.1799 4.92997 10.9399"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M10.59 13.4099C8.24996 11.0699 8.24996 7.26988 10.59 4.91988C12.93 2.56988 16.73 2.57988 19.08 4.91988C21.43 7.25988 21.42 11.0599 19.08 13.4099"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -295,28 +295,28 @@
   >
     <path
       d="M12 4.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M12 9.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 14.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 19.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -333,35 +333,35 @@
   >
     <path
       d="M3 22H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 2H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M12 6V18"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M14.83 7.71989L12 4.88989L9.17004 7.71989"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M14.83 15.8899L12 18.7199L9.17004 15.8899"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -378,35 +378,35 @@
   >
     <path
       d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M7 12.1599H9.68C10.39 12.1599 10.87 12.6999 10.87 13.3499V14.84C10.87 15.49 10.39 16.03 9.68 16.03H8.19C7.54 16.03 7 15.49 7 14.84V12.1599"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M7 12.16C7 9.36997 7.52 8.89997 9.09 7.96997"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M13.14 12.1599H15.82C16.53 12.1599 17.01 12.6999 17.01 13.3499V14.84C17.01 15.49 16.53 16.03 15.82 16.03H14.33C13.68 16.03 13.14 15.49 13.14 14.84V12.1599"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M13.14 12.16C13.14 9.36997 13.66 8.89997 15.23 7.96997"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -423,35 +423,35 @@
   >
     <path
       d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M2.02979 8.5H21.9998"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M2.02979 15.5H21.9998"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M8.50977 21.99V2.01001"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M15.5098 21.99V2.01001"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -468,42 +468,42 @@
   >
     <path
       d="M11 19.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M11 12.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M11 5.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 5.5L4 6.5L7 3.5"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 12.5L4 13.5L7 10.5"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 19.5L4 20.5L7 17.5"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -520,28 +520,28 @@
   >
     <path
       d="M3 4.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 9.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 14.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M3 19.5H21"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -558,28 +558,28 @@
   >
     <path
       d="M11.02 19.5H7.5C6.88 19.5 6.33 19.48 5.84 19.41C3.21 19.12 2.5 17.88 2.5 14.5V9.5C2.5 6.12 3.21 4.88 5.84 4.59C6.33 4.52 6.88 4.5 7.5 4.5H10.96"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M15.02 4.5H16.5C17.12 4.5 17.67 4.52 18.16 4.59C20.79 4.88 21.5 6.12 21.5 9.5V14.5C21.5 17.88 20.79 19.12 18.16 19.41C17.67 19.48 17.12 19.5 16.5 19.5H15.02"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M15 2V22"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
       d="M8 8.5V15.5"
-      stroke="#111112"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"

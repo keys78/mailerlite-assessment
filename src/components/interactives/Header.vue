@@ -36,10 +36,10 @@
       </div>
     </div>
     <div class="flex 767:space-x-5 space-x-2">
-      <button
+      <button @click="pageBuilderStore.editorMode ? pageBuilderStore.toggleEditorMode(false) : pageBuilderStore.toggleEditorMode(true)"
         class="border border-gray-200 767:py-2 py-1 rounded-[6px] 767:w-[120px] w-[80px] text-accent1 cursor-pointer"
       >
-        Preview
+        {{ pageBuilderStore.editorMode ? 'Preview' : 'Edit' }}
       </button>
       <button
         @click="getAllData"

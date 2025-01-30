@@ -10,22 +10,20 @@
       @dragstart="handleDragStart($event, element)"
       draggable="true"
     >
-      <SvgIcons
-        :name="element.iconName"
-        :width="element.iconWidth"
-        :height="element.iconHeight"
-        class="border border-gray-200 rounded-[6px]"
+      <img
+        :src="element.iconName"
+        :alt="element.iconName"
+        class="border border-[var(--borderOne)] rounded-[6px] w-full mb-3 p-2"
       />
     </div>
   </draggable>
 </template>
 
 <script lang="ts" setup>
-import SvgIcons from "../../assets/icons/SvgIcons.vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 
-const pageBuilderStore = usePageBuilderStore()
+const pageBuilderStore = usePageBuilderStore();
 
 // Make the items draggable by adding draggable data
 const handleDragStart = (event: DragEvent, item: any) => {

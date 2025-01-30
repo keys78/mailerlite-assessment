@@ -1,9 +1,9 @@
 <template>
   <div
-    class="border border-gray-200 rounded-[5px] bg-[var(--editor)] w-full h-full p-2 767:mt-0 mt-4"
+    class="border border-[var(--borderOne)] rounded-[5px] bg-[var(--editor)] w-full h-full p-2 767:mt-0 mt-4"
   >
     <div
-      class="droppable-area p-5 h-auto min-h-screen border-dashed border"
+      class="droppable-area p-5 h-auto min-h-screen border-dashed border !border-[var(--borderOne)]"
       @drop.prevent="handleDrop"
       @dragover.prevent
       @dragenter.prevent
@@ -24,7 +24,7 @@
             :key="item.uuid"
           >
             <div
-              class="my-4"
+              class=""
               :class="{
                 'border-dashed border-[0.5px] border-amber-950 p-2':
                   item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid,
@@ -36,7 +36,7 @@
               >
                 <div class="cursor-move">
                   <p
-                    class="bg-white rounded-[3px] p-1 w-auto flex items-center"
+                    class="border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto flex items-center"
                     @click="pageBuilderStore.deleteBlockFromBuilder(index)"
                   >
                     <SvgIcon name="drag-icon" width="18" height="18" />
@@ -46,7 +46,7 @@
                 </div>
                 <div class="flex items-center space-x-3">
                   <p
-                    class="bg-white rounded-[3px] p-1 w-auto cursor-pointer flex items-center"
+                    class="border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto cursor-pointer flex items-center"
                     @click="pageBuilderStore.duplicateBlockInBuilder(index)"
                   >
                     <SvgIcon name="duplicate" width="18" height="18" /> &nbsp;{{
@@ -55,7 +55,7 @@
                     <span class="text-[14px]">Duplicate</span>
                   </p>
                   <p
-                    class="bg-white rounded-[3px] p-1 w-auto cursor-pointer flex items-center border"
+                    class="border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto cursor-pointer flex items-center"
                     @click="pageBuilderStore.deleteBlockFromBuilder(index)"
                   >
                     <SvgIcon
@@ -69,21 +69,23 @@
                   </p>
                 </div>
               </div>
-              <ImageBlock
-                v-if="item.blockType === 'image'"
-                :block="item"
-                @click="pageBuilderStore.setIsEdittingBlock(item, index)"
-              />
-              <TextBlock
-                v-if="item.blockType === 'text'"
-                :block="item"
-                @click="pageBuilderStore.setIsEdittingBlock(item, index)"
-              />
-              <LayoutBlock
-                v-if="item.blockType === 'layout'"
-                :block="item"
-                @click="pageBuilderStore.setIsEdittingBlock(item, index)"
-              />
+              <div class="w-full">
+                <ImageBlock
+                  v-if="item.blockType === 'image'"
+                  :block="item"
+                  :index="index"
+                />
+                <TextBlock
+                  v-if="item.blockType === 'text'"
+                  :block="item"
+                  :index="index"
+                />
+                <LayoutBlock
+                  v-if="item.blockType === 'layout'"
+                  :block="item"
+                  :index="index"
+                />
+              </div>
             </div>
           </div>
         </draggable>
@@ -93,6 +95,7 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import ImageBlock from "../../components/Blocks/ImageBlock.vue";
 import LayoutBlock from "../../components/Blocks/LayoutBlock.vue";
@@ -108,6 +111,10 @@ const handleDrop = (event: DragEvent) => {
     pageBuilderStore.addBlockToBuilder(JSON.parse(droppedItem));
   }
 };
+
+onMounted(() => {
+  console.log("id3", pageBuilderStore.isEdittingBlock);
+});
 </script>
 
 <style scoped>

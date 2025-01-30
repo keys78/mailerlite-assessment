@@ -4,7 +4,8 @@
       <label
         for="imageUpload"
         class="cursor-pointer rounded-[6px] p-3 text-center bg-[var(--secondary)] text-[var(--accent1A)] flex items-center justify-center space-x-3"
-        ><SvgIcons name="upload-image" width="20" height="20" /> &nbsp; {{' '}} Upload Image</label
+        ><SvgIcons name="upload-image" width="20" height="20" /> &nbsp;
+        {{ " " }} Upload Image</label
       >
       <input
         id="imageUpload"
@@ -20,7 +21,7 @@
       :list="pageBuilderStore.builderImages"
     >
       <div
-        class="cursor-move 767:min-w-auto min-w-[200px]"
+        class="cursor-move 767:min-w-auto min-w-[200px] relative"
         v-for="(element, index) in pageBuilderStore.builderImages"
         :key="index"
         @dragstart="handleDragStart($event, element, index)"
@@ -29,13 +30,13 @@
         <img
           :src="element.src"
           alt="uploaded image"
-          class="w-full h-[80px] object-cover"
+          class="w-full h-[85px] object-cover"
         />
         <button
           @click="pageBuilderStore.removeUploadedImagesFromBuilderImages(index)"
-          class="w-full cursor-pointer text-center bg-gray-400 py-1 mt-2 rounded-[4px]"
+          class="cursor-pointer absolute top-1 right-1"
         >
-          Remove
+          <SvgIcons name="delete" width="24" height="24" class="text-red-500" />
         </button>
       </div>
     </draggable>
@@ -46,7 +47,7 @@
 import { ref } from "vue";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
-import SvgIcons from "../../assets/icons/SvgIcons.vue"
+import SvgIcons from "../../assets/icons/SvgIcons.vue";
 
 const uploadedImages = ref<string[]>([]);
 const pageBuilderStore = usePageBuilderStore();

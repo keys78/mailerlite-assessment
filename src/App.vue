@@ -6,14 +6,14 @@
       <div
         class="flex 767:flex-row flex-col items-start 767:space-x-3 767:mt-3 mt-1 h-full w-full"
       >
-        <div class="767:w-[300px] w-full max-h-[80vh] overflow-auto 767:fixed">
+        <div v-if="pageBuilderStore.editorMode" class="767:w-[300px] w-full max-h-[80vh] overflow-auto 767:fixed">
           <StyleSideBar v-if="pageBuilderStore.isEditting" />
           <SelectionSideBar v-else />
         </div>
-        <div class="767:ml-[310px] w-full">
-          <DroppableSection />
+        <div class="767:ml-[310px] w-full" :class="{'767:!ml-[10px] w-full' : !pageBuilderStore.editorMode}">
+          <DroppableSection v-if="pageBuilderStore.editorMode" />
+          <BlockPreview v-else />
         </div>
-        <!-- <BlockPreview /> -->
       </div>
     </div>
   </div>

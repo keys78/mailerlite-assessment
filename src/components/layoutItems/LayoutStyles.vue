@@ -19,19 +19,19 @@
       />
     </div>
     <div class="mb-4 flex items-center justify-between">
-      <label>Margin:</label>
+      <label>Padding:</label>
       <div class="flex items-center justify-between">
         <input
         type="number"
         min="1"
         class="border p-2 w-[50%] rounded-md"
-        v-model="pageBuilderStore.getIsEdittingBlock.marginY"
+        v-model="pageBuilderStore.getIsEdittingBlock.paddingY"
       />
       <input
         type="number"
         min="1"
         class="border p-2 w-[50%] rounded-md"
-        v-model="pageBuilderStore.getIsEdittingBlock.marginX"
+        v-model="pageBuilderStore.getIsEdittingBlock.paddingX"
       />
       </div>
     </div>

@@ -5,6 +5,7 @@ import { builderImages, builderLayouts, builderTextTypes } from "../utils/blockD
 export const usePageBuilderStore = defineStore("pagebuilderstore", {
   state: () => ({
     builderBlocks: [] as any,
+    editorMode: true,
     selectedBlock: "layout",
     isEditting: false,
     isEdittingBlock: {} as any,
@@ -12,7 +13,7 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     isActiveLayout: {} as any,
     builderImages: builderImages,
     builderTextTypes: builderTextTypes,
-    builderLayouts: builderLayouts
+    builderLayouts: builderLayouts,
   }),
 
   getters: {
@@ -21,6 +22,7 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
     getAllBuilderBlocks: (state) => state.builderBlocks,
     getBuilderImages: (state) => state.builderImages,
     getBuilderLayouts: (state) => state.builderLayouts,
+    getEditorMode: (state) => state.editorMode,
   },
 
   actions: {
@@ -35,11 +37,13 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
         src: imageSrc,
         alt: "",
         width: "",
-        height: "400",
+        height: "",
         backgroundColor: "",
-        border: "1",
-        borderColor: "#000000",
+        border: "0",
+        borderColor: "transparent",
         borderRadius: "1",
+        paddingX: "10",
+        paddingY: "10",
       };
       this.builderImages.push({ ...image });
     },
@@ -105,5 +109,8 @@ export const usePageBuilderStore = defineStore("pagebuilderstore", {
         }
       }
     },
+    toggleEditorMode(bool: boolean) {
+      this.editorMode = bool
+    }
   },
 });

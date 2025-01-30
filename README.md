@@ -7,10 +7,9 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 
 Remaining TODOs:
-- Add margin to images and text
 - Hide toolbar when its not focused
 - Run test
 - Responsiveness
 - Style update
 - host on bvercel
-- get groceries for the night
+- wrap text-toolbar to stop overflowing

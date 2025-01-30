@@ -12,7 +12,7 @@
         draggable="true"
       >
         <button
-          class="cursor-move rounded-[6px] capitalize w-full text-center flex items-center space-x-3 my-1 border border-gray-200 p-2"
+          class="cursor-move rounded-[6px] capitalize w-full text-center flex items-center space-x-3 my-1 border border-[var(--borderOne)] text-[var(--accent1B)] p-2"
         >
           <span>
             <SvgIcon :name="element.iconName" width="18" height="18"

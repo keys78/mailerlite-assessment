@@ -1,6 +1,15 @@
 <template>
-  <div class="w-full editor-wrapper" :style="editorStyles">
-    <ckeditor v-model="data" :editor="ClassicEditor" :config="config" />
+  <div
+    :style="editorStyles"
+    @click.stop="pageBuilderStore.setIsEdittingBlock(block, index)"
+  >
+    <ckeditor
+      v-model="data"
+      :editor="ClassicEditor"
+      :config="config"
+      :disabled="!pageBuilderStore.editorMode"
+    />
+    <div></div>
   </div>
 </template>
 
@@ -39,6 +48,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  index: {
+    type: Number,
+    required: true,
+  },
 });
 const pageBuilderStore = usePageBuilderStore();
 const data = ref(props.block.content || "<p>Hello World!</p>");
@@ -69,7 +82,7 @@ const config = computed(() => {
       Code,
     ],
     toolbar: {
-      items: filteredToolBarItems.value
+      items: filteredToolBarItems.value,
     },
   };
 });
@@ -127,6 +140,7 @@ const filteredToolBarItems = computed(() => {
           "bold",
           "italic",
           "code",
+          "alignment",
         ].includes(item)
       );
       break;
@@ -151,6 +165,7 @@ const filteredToolBarItems = computed(() => {
           "link",
           "blockQuote",
           "codeBlock",
+          "alignment",
         ].includes(item)
       );
       break;
@@ -228,38 +243,27 @@ const filteredToolBarItems = computed(() => {
       break;
   }
 
-  return toolbar;
+  return pageBuilderStore.editorMode
+    ? toolbar
+    : [];
 });
+
+// const isActiveEl = computed(() => {
+//   return props.block.uuid === pageBuilderStore.getIsEdittingBlock.uuid
+// })
 
 const editorStyles = computed(() => ({
   backgroundColor: props.block.backgroundColor,
   borderRadius: `${props.block.borderRadius || 1}px`,
-  border: `${props.block.border || 1}px solid ${
-    props.block.borderColor}`
+  border: `${props.block.border || 1}px solid ${props.block.borderColor}`,
+  padding: props.block.paddingY + 'px' + ' ' + props.block.paddingX + 'px',
 }));
 
 onMounted(() => {
-  // console.log("id1", props.block);
-  // console.log("id2", pageBuilderStore.isEdittingBlock);
-  // console.log("data", data);
+  console.log("id1", props.block.uuid);
+  console.log("id2", pageBuilderStore.isEdittingBlock.uuid);
 });
 </script>
 
 <style scoped>
-/* :root {
-  --editor-bg-color: {{props.block.backgroundColor}};
---editor-border-radius: {{props.block.borderRadius}},
---editor-border: {{props.block.border}}
-}
-
-
-.ck.ck-editor__main > .ck-editor__editable {
-  background-color: var(--editor-bg-color) !important;
-  border-radius: var(--editor-border-radius) !important;
-  border: var(--editor-border) !important
-}
-
-.editor-wrapper {
-  background-color: var(--editor-bg-color);
-} */
 </style>

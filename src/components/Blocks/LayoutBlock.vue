@@ -1,42 +1,43 @@
 <template>
   <div class="">
-    <div class="p-2"
+    <div
+      class=""
       :style="{
         backgroundColor: block.backgroundColor,
         borderRadius: block.borderRadius + 'px',
         border: block.border + 'px ' + ' solid ' + block.borderColor,
-        margin: block.marginY + 'px' + ' ' + block.marginX + 'px'
+        padding: block.paddingY + 'px' + ' ' + block.paddingX + 'px',
       }"
+      @click.self="pageBuilderStore.setIsEdittingBlock(block, index)"
     >
       <draggable
+        :disabled="!pageBuilderStore.editorMode"
         class="dragArea list-group w-full grid gap-10 items-center justify-center"
         :class="{
-          'grid-cols-2': block.layoutType === 'layoutType1',
+          'grid-cols-2': ['layoutType1', 'layoutType3', 'layoutType4'].includes(block.layoutType),
           'grid-cols-1': block.layoutType === 'layoutType2',
         }"
         :list="block.items"
       >
-        <div
-          v-for="(item, index) in block.items"
-          :key="index"
-          class=""
-        >
+        <div v-for="(item, idx) in block.items" :key="idx" class="">
           <div
-            class="w-full cursor-move my-4"
+            class="w-full"
             :class="{
+              'cursor-move': pageBuilderStore.editorMode,
               'border-dashed border-[0.5px] border-amber-950 p-2':
+                pageBuilderStore.editorMode &&
                 item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid,
             }"
           >
             <ImageBlock
               v-if="item.blockType === 'image'"
               :block="item"
-              @click.stop="pageBuilderStore.setIsEdittingBlock(item, index, block)"
+              :index="idx"
             />
             <TextBlock
               v-if="item.blockType === 'text'"
               :block="item"
-              @click.stop="pageBuilderStore.setIsEdittingBlock(item, index, block)"
+              :index="idx"
             />
           </div>
         </div>
@@ -57,6 +58,10 @@ const pageBuilderStore = usePageBuilderStore();
 const props = defineProps({
   block: {
     type: Object,
+    required: true,
+  },
+  index: {
+    type: Number,
     required: true,
   },
 });

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 .ck.ck-editor__main>.ck-editor__editable {
+  width: 100% !important;
   background-color: transparent !important;
   box-shadow: none !important
 }
@@ -9,6 +10,19 @@
   padding: 20px !important;
   border: 0 !important;
   outline: 0 !important;
+}
+/* Initially hide the sticky panel content */
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-sticky-panel__content {
+  display: none !important;
+}
+
+/* Show the sticky panel content only when the editor is focused */
+.ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline.ck-focused .ck-sticky-panel__content {
+  display: block !important;
+}
+
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content {
+  border: 0 !important;
 }
 
 .ck .ck-content .ck-editor__editable .ck-rounded-corners .ck-editor__editable_inline .ck-blurred {
@@ -36,28 +50,34 @@
     --editorInteract: #f0f0f0;
     --accent1: #000000;
     --accent1A: #ffffff;
+    --accent1B: #000000;
+    --borderOne: #e7e7ef;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --primary: #0d1b2a;
+      --primary: #000814;
       --secondary: #415a77;
-      --tetiary: #1b263b;
-      --editor: #778da9;
-      --editorInteract: #6c87aa;
-      --accent1: #ffffff;
+      --tetiary: #0d1b2a;
+      --editor: #040410;
+      --editorInteract: #0d1218;
+      --accent1: #000000;
       --accent1A: #ffffff;
+      --accent1B: #c6c4c4;
+      --borderOne: #242428;
     }
   }
 
   :root[data-theme="dark"] {
-    --primary: #0d1b2a;
+    --primary: #000814;
     --secondary: #415a77;
-    --tetiary: #1b263b;
-    --editor: #778da9;
-    --editorInteract: #6c87aa;
-    --accent1: #ffffff;
+    --tetiary: #0d1b2a;
+    --editor: #040410;
+    --editorInteract: #0d1218;
+    --accent1: #000000;
     --accent1A: #ffffff;
+    --accent1B: #c6c4c4;
+    --borderOne: #242428;
   }
 
   :root[data-theme="light"] {
@@ -68,6 +88,8 @@
     --editorInteract: #f0f0f0;
     --accent1: #000000;
     --accent1A: #ffffff;
+    --borderOne: #e7e7ef;
+    --accent1B: #000000;
   }
 
   html {
@@ -80,9 +102,8 @@
 }
 
 
+
 :root {
   padding: 10px;
-  margin: 0 auto 0 auto;
   box-sizing: border-box;
-  max-width: 1920px;
 }
