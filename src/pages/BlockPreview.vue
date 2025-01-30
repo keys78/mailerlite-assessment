@@ -6,7 +6,7 @@
     >
       <div v-if="pageBuilderStore.getAllBuilderBlocks?.length">
         <div
-          v-for="item in pageBuilderStore.getAllBuilderBlocks"
+          v-for="(item, index) in pageBuilderStore.getAllBuilderBlocks"
           :key="item.uuid"
         >
           <div
@@ -15,14 +15,17 @@
             <ImageBlock
               v-if="item.blockType === 'image'"
               :block="item"
+              :index="index"
             />
             <TextBlock
                 v-if="item.blockType === 'text'"
                 :block="item"
+              :index="index"
               />
             <LayoutBlock
               v-if="item.blockType === 'layout'"
               :block="item"
+              :index="index"
             />
           </div>
         </div>
@@ -36,7 +39,6 @@ import { usePageBuilderStore } from "../stores/pagebuilderstore";
 import ImageBlock from "../components/Blocks/ImageBlock.vue";
 import TextBlock from "../components/Blocks/TextEditorBlock.vue"
 import LayoutBlock from "../components/Blocks/LayoutBlock.vue";
-import { VueDraggableNext as draggable } from "vue-draggable-next";
 
 const pageBuilderStore = usePageBuilderStore();
 </script>

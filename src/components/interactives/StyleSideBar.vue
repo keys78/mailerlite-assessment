@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import ImageStyles from "../../components/imageItems/ImageStyles.vue";
 import TextStyles from "../../components/textItems/TextStyles.vue";
 import LayoutStyles from "../../components/layoutItems/LayoutStyles.vue";

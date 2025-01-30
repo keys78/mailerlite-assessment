@@ -47,7 +47,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import { VueDraggableNext as draggable } from "vue-draggable-next";
 import ImageBlock from "./ImageBlock.vue";
@@ -55,7 +54,7 @@ import TextBlock from "./TextEditorBlock.vue";
 
 const pageBuilderStore = usePageBuilderStore();
 
-const props = defineProps({
+defineProps({
   block: {
     type: Object,
     required: true,

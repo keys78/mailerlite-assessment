@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import ImageSettings from "../../components/imageItems/ImageSettings.vue";
 import TextSettings from "../../components/textItems/TextSettings.vue";
 import LayoutSettings from "../../components/layoutItems/LayoutSettings.vue";

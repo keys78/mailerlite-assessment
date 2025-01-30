@@ -47,7 +47,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { usePageBuilderStore } from "../../stores/pagebuilderstore";
 import { ColorPicker } from "vue3-colorpicker";
 import "vue3-colorpicker/style.css";
