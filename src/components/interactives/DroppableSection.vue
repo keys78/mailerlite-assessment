@@ -27,12 +27,12 @@
               class=""
               :class="{
                 'border-dashed border-[0.5px] border-amber-950 p-2':
-                  item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid,
+                  item.uuid === pageBuilderStore.isEdittingBlock?.uuid,
               }"
             >
               <div
                 class="z-10 flex items-center justify-between gap-4 mb-2"
-                v-if="item.uuid === pageBuilderStore.getIsEdittingBlock?.uuid"
+                v-if="item.uuid === pageBuilderStore.isEdittingBlock?.uuid"
               >
                 <div class="cursor-move">
                   <p
@@ -46,7 +46,7 @@
                 </div>
                 <div class="flex items-center space-x-3">
                   <p
-                    class="border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto cursor-pointer flex items-center"
+                    class="duplicate-button border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto cursor-pointer flex items-center"
                     @click="pageBuilderStore.duplicateBlockInBuilder(index)"
                   >
                     <SvgIcon name="duplicate" width="18" height="18" /> &nbsp;{{
@@ -55,7 +55,7 @@
                     <span class="text-[14px]">Duplicate</span>
                   </p>
                   <p
-                    class="border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto cursor-pointer flex items-center"
+                    class="delete-button border border-[var(--borderOne)] text-[var(--accent1B)] rounded-[6px] p-1 w-auto cursor-pointer flex items-center"
                     @click="pageBuilderStore.deleteBlockFromBuilder(index)"
                   >
                     <SvgIcon

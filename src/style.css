@@ -109,5 +109,5 @@
 }
 
 .ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
-  @apply 767:!flex-wrap
+  @apply 767:!flex-wrap !bg-[#f7e9e9]
 }

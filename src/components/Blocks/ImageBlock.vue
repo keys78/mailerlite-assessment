@@ -1,23 +1,23 @@
 <template>
   <div
-    :class="`w-[100%] flex items-center`"
+    :class="`image-block-wrapper w-[100%] flex items-center`"
     :style="{
-      backgroundColor: block.backgroundColor,
-      border: block.border + 'px ' + ' solid ' + block.borderColor,
-      padding: block.paddingY + 'px' + ' ' + block.paddingX + 'px',
-      justifyContent: block.alignment
+      backgroundColor: block?.backgroundColor,
+      border: block?.border + 'px ' + ' solid ' + block?.borderColor,
+      padding: block?.paddingY + 'px' + ' ' + block?.paddingX + 'px',
+      justifyContent: block?.alignment
     }"
     @click.stop="pageBuilderStore.setIsEdittingBlock(block, index, layout)"
   >
     <img
-      :src="block.src"
-      :alt="block.alt || 'Image'"
+      :src="block?.src"
+      :alt="block?.alt || 'Image'"
       :style="{
-        width: block.width + 'px',
-        height: block.height + 'px',
-        borderRadius: block.borderRadius + 'px',
+        width: block?.width + 'px',
+        height: block?.height + 'px',
+        borderRadius: block?.borderRadius + 'px',
       }"
-      class="w-full"
+      class="image-block-img w-full"
     />
   </div>
 </template>

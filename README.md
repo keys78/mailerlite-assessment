@@ -88,8 +88,3 @@ Upon saving, the JSON output in the console or alert pop-up will look like this:
 
 Remaining TODOs:
 - Hide toolbar when its not focused
-- Run test
-- Responsiveness
-- Style update
-- host on bvercel
-- wrap text-toolbar to stop overflowing

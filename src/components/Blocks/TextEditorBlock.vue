@@ -7,7 +7,7 @@
       padding: props.block.paddingY + 'px' + ' ' + props.block.paddingX + 'px',
       justifyContent: props.block.alignment,
     }"
-    :class="`w-[100%] flex items-center`"
+    :class="`text-block-wraaper w-[100%] flex items-center`"
     @click.stop="pageBuilderStore.setIsEdittingBlock(block, index, layout)"
   >
     <ckeditor
@@ -314,27 +314,33 @@ const filteredToolBarItems = computed(() => {
 const onEditorReady = (editor: any) => {
   editorInstance = editor;
   // Use CKEditor's API to get the toolbar associated with the editor
-  const toolbar : any = editor.ui.view.toolbar.element; 
+  const toolbar: any = editor?.ui?.view?.toolbar?.element;
   if (toolbar) {
     // Add the unique UUID class to the toolbar of the current editor
     toolbar.classList.add(`ck-${props.block.uuid}`);
+    let initToolbar: any = document.querySelector(`.ck-${props.block.uuid} > .ck-toolbar__items`)
+    initToolbar.style.display = "none"
   }
 };
 
 const onEditorFocus = () => {
   editorFocused.value = true;
-  const toolbar : any = document.querySelector(`.ck-${props.block.uuid} > .ck-toolbar__items`);
+  const toolbar: any = document.querySelector(
+    `.ck-${props.block.uuid} > .ck-toolbar__items`
+  );
   if (toolbar) {
-    toolbar.style.display = "flex";  // Show the toolbar when the editor gains focus
+    toolbar.style.display = "flex"; // Show the toolbar when the editor gains focus
   }
 };
 
 const onEditorBlur = () => {
   editorFocused.value = false;
-  const toolbar : any = document.querySelector(`.ck-${props.block.uuid} > .ck-toolbar__items`);
-  if (toolbar) {
-    toolbar.style.display = "none"; // Hide the toolbar when the editor loses focus
-  }
+  // const toolbar: any = document.querySelector(
+  //   `.ck-${props.block.uuid} > .ck-toolbar__items`
+  // );
+  // if (toolbar) {
+  //   toolbar.style.display = "none"; // Hide the toolbar when the editor loses focus
+  // }
 };
 
 const onEditorInput = () => {
@@ -345,7 +351,6 @@ const onEditorInput = () => {
     pageBuilderStore.setTextContent(data.value);
   }
 };
-
 </script>
 
 <style scoped></style>
