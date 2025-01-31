@@ -1,25 +1,6 @@
 <template>
   <div>
     <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
-      <label>Font weight:</label>
-      <select name="fontFamily" id="" v-model="pageBuilderStore.getIsEdittingBlock.fontWeight">
-        <option value="400">400</option>
-        <option value="500">500</option>
-        <option value="600">600</option>
-        <option value="700">700</option>
-        <option value="800">800</option>
-      </select>
-    </div>
-    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
-      <label>Line Height:</label>
-      <select name="fontFamily" id="" v-model="pageBuilderStore.getIsEdittingBlock.lineHeight">
-        <option value="0">Arial</option>
-        <option value="0">Times New</option>
-        <option value="0">Calibra</option>
-        <option value="0">Roboto</option>
-      </select>
-    </div>
-    <div class="mb-4 flex items-center justify-between text-[var(--accent1B)]">
       <label>Border Radius:</label>
       <input
         type="number"
