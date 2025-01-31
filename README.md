@@ -81,6 +81,12 @@ A simple drag & drop landing page builder created using **Vue 3**
 
 - **Delete Block:** Click the delete button on any block to remove it from the builder.
 
+
+
+![Dark Mode](public/darkmode.png)
+
+
+
 - **Preview Button:** Click the "Preview" button to view the current state of the landing page.
   
 - **Save Button:** Click the "Save" button to export the current state of the landing page in JSON format. The exported JSON will be logged to the console.
@@ -166,11 +172,11 @@ Upon saving, the JSON output in the console or alert pop-up will look like this:
 ]
 ```
 
-## Extra Screenshots
+## Extra Screenshots 
+
+- Passed Unit Testing
 
 ![Unit Test](public/terminal.png)
-
-![Dark Mode](public/darkmode.png)
 
 
 
