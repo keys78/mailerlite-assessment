@@ -2,6 +2,10 @@
 
 A simple drag & drop landing page builder created using **Vue 3** 
 
+![Web View](public/webview.png)
+![Mobile View](public/mobileview.png)
+
+
 ## Features
 
 - **Draggable Blocks:** Two types of draggable blocks:
@@ -62,10 +66,16 @@ A simple drag & drop landing page builder created using **Vue 3**
 ## Usage
 
 - **Add Text Block:** Drag and drop the Text Block into the builder area. You can edit its content directly.
+
+![Dragging a text block](public/drag_textblock.png)
   
 - **Add Image Block:** Drag and drop the Image Block into the builder area. Click on the block to select one of the predefined images.
 
+![Dragging an Image Block](public/drag_image.png)
+
 - **Rearrange Blocks:** Click and drag any block to reorder them.
+
+![Active state| Editor state](public/active_states.png)
 
 - **Duplicate Block:** Click the duplicate button on any block to create a copy.
 
@@ -80,10 +90,88 @@ A simple drag & drop landing page builder created using **Vue 3**
 Upon saving, the JSON output in the console or alert pop-up will look like this:
 
 ```json
-
+[
+   {
+      "uuid":"XUgf3ykms4pVUUm_tSYOX",
+      "blockType":"text",
+      "name":"heading",
+      "iconName":"heading",
+      "content":"<h2 style=\"text-align:center;\"><span class=\"text-huge\">Testing Darkmode&nbsp;</span></h2>",
+      "backgroundColor":"transparent",
+      "border":"0",
+      "borderColor":"transparent",
+      "borderRadius":"1",
+      "paddingX":"40",
+      "paddingY":0,
+      "alignment":"center"
+   },
+   {
+      "uuid":"P6BTFuQ9IYaCnORC_6-NQ",
+      "blockType":"layout",
+      "layoutType":"layoutType1",
+      "iconName":"/src/assets/img/layout_one.png",
+      "backgroundColor":"#ffffff",
+      "border":"0",
+      "borderColor":"transparent",
+      "borderRadius":"1",
+      "paddingX":"40",
+      "paddingY":"40",
+      "alignment":"center",
+      "items":[
+         {
+            "uuid":"Bs5eFe8MWPO6bnm-PZoJy",
+            "blockType":"image",
+            "src":"/src/assets/img/pred__two.jpg",
+            "alt":"banner",
+            "width":"",
+            "height":"400",
+            "backgroundColor":"",
+            "border":"0",
+            "borderColor":"transparent",
+            "borderRadius":"1",
+            "paddingX":"10",
+            "paddingY":"10",
+            "alignment":"center"
+         },
+         {
+            "uuid":"aDC5nzjhV0JP0jjV0leXY",
+            "blockType":"text",
+            "name":"heading",
+            "content":"<h2><span style=\"color:hsl(0, 0%, 0%);\"><strong>Creative Design That Converts</strong></span></h2><p><span style=\"color:hsl(0, 0%, 0%);\">Great design isn't just about aesthetics — it's about creating user experiences that drive results. Whether it's a website or a landing page, design matters!</span></p><p><br>&nbsp;</p><h2><span style=\"color:hsl(0, 0%, 0%);\"><strong>Why Invest in Design?</strong></span></h2><ul><li><span style=\"color:hsl(0, 0%, 0%);\">Improve user engagement.</span></li><li><span style=\"color:hsl(0, 0%, 0%);\">Enhance brand recognition.</span></li><li><span style=\"color:hsl(0, 0%, 0%);\">Boost conversions and sales.</span></li></ul>",
+            "backgroundColor":"transparent",
+            "border":"0",
+            "borderColor":"transparent",
+            "borderRadius":"1",
+            "paddingX":"10",
+            "paddingY":"10",
+            "alignment":"center"
+         }
+      ]
+   },
+   {
+      "uuid":"KqT71Z9X1GUqOeqW4GW4b",
+      "blockType":"image",
+      "src":"/src/assets/img/pred__two.jpg",
+      "alt":"architecture",
+      "width":"",
+      "height":"",
+      "backgroundColor":"transparent",
+      "border":"0",
+      "borderColor":"transparent",
+      "borderRadius":"1",
+      "paddingX":"40",
+      "paddingY":"40",
+      "alignment":"center"
+   }
+]
 ```
 
-## Screenshots
+## Extra Screenshots
+
+![Unit Test](public/terminal.png)
+
+![Dark Mode](public/darkmode.png)
+
 
 
 Remaining TODOs:
