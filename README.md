@@ -1,6 +1,7 @@
 # Landing Page Builder
 
 A simple drag & drop landing page builder created using **Vue 3** 
+- [Link to Live Demo](https://emmanuelo-mailerlite-assessment.vercel.app/)
 
 ![Web View](public/webview.png)
 ![Mobile View](public/mobileview.png)
